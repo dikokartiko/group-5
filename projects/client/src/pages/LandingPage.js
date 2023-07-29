@@ -1,7 +1,8 @@
-import { Box, Button, ButtonGroup } from '@chakra-ui/react'
+import { Box, Button, ButtonGroup, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
 
 const LandingPage = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Box
         bgColor="grey"
