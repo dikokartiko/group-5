@@ -1,5 +1,6 @@
 import { Box, Button, ButtonGroup, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
+import TabModal from '../components/modal/TabModal'
 
 const LandingPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -16,10 +17,13 @@ const LandingPage = () => {
         bgRepeat='no-repeat'
         mb={2}
     >
-    <ButtonGroup gap='4'>
-        <Button colorScheme='red'>Login</Button>
-        <Button colorScheme='linkedin'>Register</Button>
-    </ButtonGroup>
+      <ButtonGroup gap='4'>
+          <Button colorScheme='red' onClick={onOpen}>Login</Button>
+          <Button colorScheme='linkedin'>Register</Button>
+      </ButtonGroup>
+      <TabModal isOpen={isOpen} onClose={onClose} title="This is tab modal">
+
+      </TabModal>
     </Box>
   )
 }
