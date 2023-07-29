@@ -2,6 +2,11 @@ import { Modal, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Tab, 
 import React from 'react'
 
 const TabModal = (props) => {
+  let leftTabColor;
+  let rightTabColor;
+  (props.leftTabColor)? leftTabColor = props.leftTabColor : leftTabColor = "lightgreen";
+  (props.rightTabColor)? rightTabColor = props.rightTabColor : rightTabColor = "pink";
+
   return (
     <Modal isOpen={props.isOpen} onClose={() => {
       // modalOnClose();
@@ -14,8 +19,8 @@ const TabModal = (props) => {
         <ModalCloseButton />
         <Tabs isFitted variant='enclosed'>
           <TabList>
-            <Tab bg="lightgreen" borderTopLeftRadius={15} /*onClick={() => loginTab()}*/>Login</Tab>
-            <Tab bg="pink" borderTopRightRadius={15} /*onClick={/*() => registerTab()}*/>Register</Tab>
+            <Tab bg={leftTabColor} borderTopLeftRadius={15} /*onClick={() => loginTab()}*/>Login</Tab>
+            <Tab bg={rightTabColor} borderTopRightRadius={15} /*onClick={/*() => registerTab()}*/>Register</Tab>
           </TabList>
           <TabPanels>
             {/* <LoginForm />
