@@ -44,6 +44,30 @@ Run command on server project.
 
 Install dependency in server project. Use `npm install:server:dev` for dev dependencies.
 
+• GitHub Pull Request via Command Line (CMD) / Terminal:\
+1. Open VSC NOT as administrator (normal open)
+2. Download + install scoop: iwr -useb get.scoop.sh | iex
+3. Download GitHub CLI: scoop bucket add github-gh https://github.com/cli/scoop-gh.git
+4. Install GitHub CLI: scoop install gh
+5. Run GitHub CLI: gh auth login
+6. Preparation by selecting the options:
+    ? What account do you want to log into? GitHub.com
+    ? What is your preferred protocol for Git operations? HTTPS
+    ? Authenticate Git with your GitHub credentials? Yes
+    ? How would you like to authenticate GitHub CLI? Login with a web browser
+
+    ! First copy your one-time code: 61B3-A2EF
+    Press Enter to open github.com in your browser... 
+    ✓ Authentication complete.
+    [Ignore, just note] - gh config set -h github.com git_protocol https
+    ✓ Configured git protocol
+    ✓ Logged in as dimasivonanggitama
+7. Select default remote repository: gh repo set-default
+    ? Which repository should be the default? dikokartiko/group-5
+    ✓ Set dikokartiko/group-5 as the default repository for the current directory
+8. Create Pull Request:
+    gh pr create --base development --head test --title "Ini adalah judul" --body "Ini adalah deskripsi. ini aku coba pull request langsung dari terminal/command line" --reviewer dikokartiko
+
 • Versioning Code:\
 v(F).(FU).(C).(CU)\
 F = Feature\
