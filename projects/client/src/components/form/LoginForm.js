@@ -1,12 +1,16 @@
 import axios from "axios";
 import { Box, Button, Input, Text } from '@chakra-ui/react'
 import { useFormik } from 'formik'
-import React from 'react'
+import React, { useState } from 'react'
 import * as Yup from "yup";
 import InputWithError from "../input/InputWithError";
+import InputPassword from "../input/InputPassword";
 
 
-const LoginForm = () => {  
+const LoginForm = () => {
+    const [show, setShow] = useState(false);
+    const handleClick = () => setShow(!show);
+
     const loginSchema = useFormik({
         initialValues: {
             username: "",
@@ -49,7 +53,8 @@ const LoginForm = () => {
                 <InputWithError
                     errors={loginSchema.errors.password}
                     touched={loginSchema.touched.password}
-                    presetInput={<Input type="password" name="password" placeholder='Password' bgColor="white" borderColor={"grey"} color={"black"} value={loginSchema.values.password} onChange={loginSchema.handleChange}/>}
+                    // presetInput={<Input type="password" name="password" placeholder='Password' bgColor="white" borderColor={"grey"} color={"black"} value={loginSchema.values.password} onChange={loginSchema.handleChange}/>}
+                    presetInput={<InputPassword name="password" value={loginSchema.values.password} onChange={loginSchema.handleChange} handleClick={handleClick} show={show}/>}
                 />
                 <Box display={"flex"}>
                     <Button type="submit" colorScheme={"green"} flex={1} marginX="5">Masuk</Button>
