@@ -42,8 +42,9 @@ const LoginForm = () => {
 
     return (
         <Box bgColor={"white"} boxShadow='md' textColor={"black"} borderRadius={"md"} width={"93%"} paddingBottom={8} textAlign="center">
-            <Text as="b" fontSize={"6xl"}>GROUP 5 POS</Text>
-            <Text fontSize={"3xl"}>Login</Text>
+            <Text as="b" fontSize={"6xl"}>TUPO</Text>
+            <Divider marginTop="5" marginBottom="5"/>
+            <Text fontSize={"3xl"}>Masuk ke Dashboard</Text>
             <form onSubmit={loginSchema.handleSubmit}>
                 <InputWithError
                     errors={loginSchema.errors.username}
