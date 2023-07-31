@@ -1,4 +1,4 @@
-import { Box, Collapse, Input, Text } from '@chakra-ui/react'
+import { Box, Collapse, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const InputWithError = (props) => {
@@ -12,6 +12,7 @@ const InputWithError = (props) => {
             marginY="5"
             paddingX="1"
             paddingTop="1"
+            paddingBottom="1"
             in={bool}
             sx={{
                 "transition": "background-color 0.5s ease-out"
