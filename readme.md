@@ -81,6 +81,7 @@ F = Feature\
 &emsp;&emsp;&emsp;FE-COMP-1 = Regular Modal\
 &emsp;&emsp;&emsp;FE-COMP-2 = Input With Error\
 &emsp;&emsp;&emsp;FE-COMP-3 = Input Password\
+&emsp;&emsp;&emsp;FE-COMP-4 = Tab Modal\
 &emsp;&emsp;FE-HOME = Home/Landing Page\
 &emsp;&emsp;FE-HEAD = Header\
 &emsp;&emsp;FE-LOGI = Login\
