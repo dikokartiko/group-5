@@ -40,7 +40,7 @@ const LoginForm = () => {
     });
 
     return (
-        <Box>
+        <Box bgColor={"white"} borderRadius={"md"} width={"50"} height={"500"}>
             <form onSubmit={loginSchema.handleSubmit}>
                 <InputWithError 
                     errors={loginSchema.errors.username} 
@@ -52,11 +52,9 @@ const LoginForm = () => {
                     touched={loginSchema.touched.password} 
                     presetInput={<Input type="password" name="password" placeholder='Password' bgColor="white" borderColor={"grey"} color={"black"} value={loginSchema.values.password} onChange={loginSchema.handleChange}/>}
                 />
-                <ModalFooter>
-                    <Button type="submit" colorScheme={"green"}>
-                        {text}
-                    </Button>
-                </ModalFooter>
+                <Button type="submit" colorScheme={"green"}>
+                    {text}
+                </Button>
             </form>
         </Box>
     )
