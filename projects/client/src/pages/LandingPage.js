@@ -20,17 +20,6 @@ const LandingPage = () => {
       // bgPosition='center'
       // bgRepeat='no-repeat'
     >
-      <ButtonGroup gap='4'>
-        <Button colorScheme='red' onClick={onOpen}>Login</Button>
-        <Button colorScheme='linkedin'>Register</Button>
-      </ButtonGroup>
-      {/* <TabModal isOpen={isOpen} onClose={onClose} title="This is tab modal"></TabModal> */}
-      {/* <RegularModal 
-        body={}
-        isOpen={isOpen}
-        onClose={onClose}
-        title="Login"
-      /> */}
       <LoginForm></LoginForm>
     </Box>
   )
