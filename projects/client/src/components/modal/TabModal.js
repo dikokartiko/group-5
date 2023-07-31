@@ -1,5 +1,6 @@
 import { Modal, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Tab, TabList, TabPanels, Tabs } from '@chakra-ui/react';
 import React from 'react'
+import LoginForm from '../form/LoginForm';
 
 const TabModal = (props) => {
   let leftTabColor;
@@ -23,8 +24,8 @@ const TabModal = (props) => {
             <Tab bg={rightTabColor} borderTopRightRadius={15} /*onClick={/*() => registerTab()}*/>Register</Tab>
           </TabList>
           <TabPanels>
-            {/* <LoginForm />
-            <RegisterForm /> */}
+            <LoginForm/>
+            {/* <RegisterForm /> */}
           </TabPanels>
         </Tabs>
       </ModalContent>
