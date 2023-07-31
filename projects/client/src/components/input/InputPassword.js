@@ -1,9 +1,26 @@
-import React from 'react'
+import { Button, Input, InputGroup, InputRightElement } from '@chakra-ui/react'
 
-const inputPassword = () => {
+const InputPassword = (props) => {
   return (
-    <div>inputPassword</div>
+    <InputGroup size='md'>
+      <Input
+        name={props.name}
+        pr='4.5rem'
+        type={props.show ? 'text' : 'password'}
+        placeholder='Password'
+        bgColor="white" 
+        borderColor={"grey"} 
+        color={"black"}
+        value={props.value}
+        onChange={props.onChange}
+      />
+      <InputRightElement width='4.5rem'>
+        <Button h='1.75rem' size='sm' onClick={props.handleClick}>
+          {props.show ? 'Hide' : 'Show'}
+        </Button>
+      </InputRightElement>
+    </InputGroup>
   )
 }
 
-export default inputPassword
+export default InputPassword
