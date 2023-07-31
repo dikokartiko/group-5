@@ -1,8 +1,9 @@
-import axios from "axios";
-import logo from "./logo.svg";
+// import axios from "axios";
+// import logo from "./logo.svg";
 import "./App.css";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import LandingPage from "./pages/LandingPage";
+import { Box } from "@chakra-ui/react";
 
 function App() {
   // const [message, setMessage] = useState("");
@@ -23,12 +24,16 @@ function App() {
   //     </header>
   //   </div>
   // );
+  // return (
+  //   <div className="App">
+  //     <header className="App-header">
+  //     </header>
+  //   </div>
+  // );
   return (
-    <div className="App">
-      <header className="App-header">
+    <Box>
         <LandingPage/>
-      </header>
-    </div>
+    </Box>
   );
 }
 
