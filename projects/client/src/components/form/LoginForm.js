@@ -1,15 +1,12 @@
 import axios from "axios";
-import { Box, Button, Input, ModalBody, ModalFooter, Select, TabPanel } from '@chakra-ui/react'
+import { Box, Button, Input, Text } from '@chakra-ui/react'
 import { useFormik } from 'formik'
-import React, { useState }  from 'react'
+import React from 'react'
 import * as Yup from "yup";
 import InputWithError from "../input/InputWithError";
 
 
-const LoginForm = () => {
-    const [text, setText] = useState("Login")
-    const [inputOption, setInputOption] = useState("");
-  
+const LoginForm = () => {  
     const loginSchema = useFormik({
         initialValues: {
             username: "",
@@ -40,21 +37,23 @@ const LoginForm = () => {
     });
 
     return (
-        <Box bgColor={"white"} borderRadius={"md"} width={"50"} height={"500"}>
+        <Box bgColor={"white"} boxShadow='md' textColor={"black"} borderRadius={"md"} width={"93%"} paddingBottom={8} textAlign="center">
+            <Text as="b" fontSize={"6xl"}>GROUP 5 POS</Text>
+            <Text fontSize={"3xl"}>Login</Text>
             <form onSubmit={loginSchema.handleSubmit}>
-                <InputWithError 
-                    errors={loginSchema.errors.username} 
-                    touched={loginSchema.touched.username} 
+                <InputWithError
+                    errors={loginSchema.errors.username}
+                    touched={loginSchema.touched.username}
                     presetInput={<Input type="text" name="username" placeholder='Username' bgColor="white" borderColor={"grey"} color={"black"} value={loginSchema.values.username} onChange={loginSchema.handleChange}/>}
                 />
-                <InputWithError 
-                    errors={loginSchema.errors.password} 
-                    touched={loginSchema.touched.password} 
+                <InputWithError
+                    errors={loginSchema.errors.password}
+                    touched={loginSchema.touched.password}
                     presetInput={<Input type="password" name="password" placeholder='Password' bgColor="white" borderColor={"grey"} color={"black"} value={loginSchema.values.password} onChange={loginSchema.handleChange}/>}
                 />
-                <Button type="submit" colorScheme={"green"}>
-                    {text}
-                </Button>
+                <Box display={"flex"}>
+                    <Button type="submit" colorScheme={"green"} flex={1} marginX="5">Masuk</Button>
+                </Box>
             </form>
         </Box>
     )
