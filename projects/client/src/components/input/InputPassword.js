@@ -15,7 +15,7 @@ const InputPassword = (props) => {
         onChange={props.onChange}
       />
       <InputRightElement width='4.5rem'>
-        <Button h='1.75rem' size='sm' onClick={props.handleClick}>
+        <Button h='1.75rem' size='sm' onClick={props.handleClick} colorScheme={props.show? "red" : "gray"} >
           {props.show ? 'Hide' : 'Show'}
         </Button>
       </InputRightElement>
