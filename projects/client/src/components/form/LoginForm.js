@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Box, Button, Input, Text } from '@chakra-ui/react'
+import { Box, Button, Divider, Input, Link, Text } from '@chakra-ui/react'
 import { useFormik } from 'formik'
 import React, { useState } from 'react'
 import * as Yup from "yup";
@@ -53,13 +53,14 @@ const LoginForm = () => {
                 <InputWithError
                     errors={loginSchema.errors.password}
                     touched={loginSchema.touched.password}
-                    // presetInput={<Input type="password" name="password" placeholder='Password' bgColor="white" borderColor={"grey"} color={"black"} value={loginSchema.values.password} onChange={loginSchema.handleChange}/>}
                     presetInput={<InputPassword name="password" value={loginSchema.values.password} onChange={loginSchema.handleChange} handleClick={handleClick} show={show}/>}
                 />
                 <Box display={"flex"}>
                     <Button type="submit" colorScheme={"green"} flex={1} marginX="5">Masuk</Button>
                 </Box>
             </form>
+            <Divider marginTop="5" marginBottom="5"/>
+            <Link href="#">Lupa kata sandi?</Link>
         </Box>
     )
 }
