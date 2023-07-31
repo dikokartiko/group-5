@@ -7,7 +7,7 @@ const InputPassword = (props) => {
         name={props.name}
         pr='4.5rem'
         type={props.show ? 'text' : 'password'}
-        placeholder='Password'
+        placeholder='Kata sandi'
         bgColor="white" 
         borderColor={"grey"} 
         color={"black"}
