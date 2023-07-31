@@ -18,11 +18,13 @@ const LoginForm = () => {
         },
         validationSchema: Yup.object({
             username: Yup.string()
+                .matches(/^[a-zA-Z0-9_.]+$/, "Hanya karakter alphanumerik, underscore, dan titik yang diperbolehkan!")
                 .min(6, "Username setidaknya minimal 6 karakter!")
                 .required("Username tidak boleh kosong!"),
             password: Yup.string()
-                .min(6, "Password setidaknya minimal 6 karakter!")
-                .required("Password tidak boleh kosong!")
+                .matches(/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[`~!@#$%^&*()_+=,{}[\]|:;'"><>?/])[a-zA-Z\d`~!@#$%^&*()_+=,{}[\]|:;'"><>?/]+$/, "Kata sandi harus kombinasi alphanumerik dan karakter spesial!")
+                .min(6, "Kata sandi setidaknya minimal 6 karakter!")
+                .required("Kata sandi tidak boleh kosong!")
         }),
         onSubmit: async values => {
             // alert(JSON.stringify(values, null, 2));
