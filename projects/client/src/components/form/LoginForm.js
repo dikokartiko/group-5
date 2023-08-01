@@ -63,7 +63,7 @@ const LoginForm = () => {
                 </Box>
             </form>
             <Divider marginTop="5" marginBottom="5"/>
-            <Link href="#" color="blue.500">Lupa kata sandi?</Link>
+            <Link href="/forgotPassword" color="blue.500">Lupa kata sandi?</Link>
         </Box>
     )
 }
