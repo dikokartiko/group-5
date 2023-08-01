@@ -48,16 +48,12 @@ const LoginForm = () => {
             <Divider marginTop="5" marginBottom="5"/>
             <Text fontSize={"3xl"}>Masuk ke Dashboard</Text>
             <form onSubmit={loginSchema.handleSubmit}>
-                <InputWithError
-                    errors={loginSchema.errors.username}
-                    touched={loginSchema.touched.username}
-                    presetInput={<Input type="text" name="username" placeholder='Username' bgColor="white" borderColor={"grey"} color={"black"} value={loginSchema.values.username} onChange={loginSchema.handleChange}/>}
-                />
-                <InputWithError
-                    errors={loginSchema.errors.password}
-                    touched={loginSchema.touched.password}
-                    presetInput={<InputPassword name="password" value={loginSchema.values.password} onChange={loginSchema.handleChange} handleClick={handleClick} show={show}/>}
-                />
+                <InputWithError errors={loginSchema.errors.username} touched={loginSchema.touched.username}>
+                    <Input type="text" name="username" placeholder='Username' bgColor="white" borderColor={"grey"} color={"black"} value={loginSchema.values.username} onChange={loginSchema.handleChange}/>
+                </InputWithError>
+                <InputWithError errors={loginSchema.errors.password} touched={loginSchema.touched.password}>
+                    <InputPassword name="password" value={loginSchema.values.password} onChange={loginSchema.handleChange} handleClick={handleClick} show={show}/>
+                </InputWithError>
                 <Box display={"flex"}>
                     <Button type="submit" colorScheme={"green"} flex={1} marginX="5">Masuk</Button>
                 </Box>
