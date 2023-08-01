@@ -68,6 +68,11 @@ Install dependency in server project. Use `npm install:server:dev` for dev depen
 8. Create Pull Request:
     gh pr create --base development --head test --title "Ini adalah judul" --body "Ini adalah deskripsi. ini aku coba pull request langsung dari terminal/command line" --reviewer dikokartiko
 
+• Installed Dependency on Front End (FE) / Client-side:
+1. npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion
+2. npm install formik yup
+3. npm install react-router-dom
+
 • Versioning Code:\
 (WA)-(F)-v(CU)\
 WA = Working Area\
@@ -82,6 +87,7 @@ F = Feature\
 &emsp;&emsp;&emsp;FE-COMP-2 = Input With Error\
 &emsp;&emsp;&emsp;FE-COMP-3 = Input Password\
 &emsp;&emsp;&emsp;FE-COMP-4 = Tab Modal\
+&emsp;&emsp;&emsp;FE-COMP-5 = Blank Page\
 &emsp;&emsp;FE-HOME = Home/Landing Page\
 &emsp;&emsp;FE-HEAD = Header\
 &emsp;&emsp;FE-LOGI = Login\
