@@ -20,7 +20,7 @@ const InputWithError = (props) => {
             alignItems={"start"}
             textAlign={"left"}
         >
-            {props.presetInput}
+            {props.children}
             <Collapse in={bool}>
                 <Text fontSize={"md"} paddingLeft="1">{props.errors}</Text>
             </Collapse>
