@@ -1,8 +1,9 @@
 import React from 'react'
+import BlankPage from './BlankPage'
 
 const ForgotPassword = () => {
   return (
-    <div>ForgotPassword</div>
+    <BlankPage></BlankPage>
   )
 }
 
