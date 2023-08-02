@@ -5,10 +5,12 @@ import React, { useState } from "react";
 import * as Yup from "yup";
 import InputWithError from "../input/InputWithError";
 import InputPassword from "../input/InputPassword";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
+  const navigate = useNavigate();
 
   const loginSchema = useFormik({
     initialValues: {
@@ -21,32 +23,30 @@ const LoginForm = () => {
           /^[a-zA-Z0-9_.]+$/,
           "Hanya karakter alphanumerik, underscore, dan titik yang diperbolehkan!"
         )
-        .min(6, "Username setidaknya minimal 6 karakter!")
         .required("Username tidak boleh kosong!"),
-      password: Yup.string()
-        .matches(
-          /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[`~!@#$%^&*()_+=,{}[\]|:;'"><>?/])[a-zA-Z\d`~!@#$%^&*()_+=,{}[\]|:;'"><>?/]+$/,
-          "Kata sandi harus kombinasi alphanumerik dan karakter spesial!"
-        )
-        .min(6, "Kata sandi setidaknya minimal 6 karakter!")
-        .required("Kata sandi tidak boleh kosong!"),
+      password: Yup.string().required("Kata sandi tidak boleh kosong!"),
     }),
     onSubmit: async (values) => {
-      // alert(JSON.stringify(values, null, 2));
-
-      // const axios = require("axios");
+      const login = {
+        username: values.username,
+        password: values.password,
+      };
       await axios
-        .post("https://minpro-blog.purwadhikabootcamp.com/api/auth/login", {
-          username: values.username,
-          password: values.password,
-        })
+        .post("http://localhost:3000/auth/login", login)
         .then((resp) => {
-          alert(`[resp.data]: ${resp.data}`);
+          console.log(resp);
+          const roleId = resp.data.user.roleId;
+          const token = resp.data.token;
+          const expiryTime = Date.now() + 60 * 60 * 1000;
+          localStorage.setItem("token", token);
+          localStorage.setItem("tokenExpiryTime", expiryTime);
+          roleId === 1
+            ? navigate("/admin/dashboard")
+            : navigate("/cashier/dashboard");
         })
         .catch((error) => {
-          alert(`[error.response.data.err] ${error.response.data.err}`);
+          console.log(error.response.data.error);
         });
-      alert("Done");
     },
   });
 

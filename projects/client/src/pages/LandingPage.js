@@ -1,20 +1,29 @@
-import { Box, VStack } from '@chakra-ui/react'
+import { Box, Button, ButtonGroup, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
-import LoginForm from '../components/form/LoginForm'
-import Hero from '../components/section/Hero'
+import TabModal from '../components/modal/TabModal'
 
 const LandingPage = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Box
-      display='flex'
-      justifyContent={"center"}
-      height="calc(100vh)"
-      width='100%'
+        bgColor="grey"
+        display='flex'
+        alignItems='center'
+        justifyContent='center'
+        width='50%'
+        py={12}
+        // bgImage="url('https://bit.ly/2Z4KKcF')"
+        bgPosition='center'
+        bgRepeat='no-repeat'
+        mb={2}
     >
-      <Box flex={2} bgColor="lightgrey"><Hero/></Box>
-      <VStack flex={1} bgColor={"blackAlpha.100"} justifyContent={"center"}>
-        <LoginForm/>
-      </VStack>
+      <ButtonGroup gap='4'>
+          <Button colorScheme='red' onClick={onOpen}>Login</Button>
+          <Button colorScheme='linkedin'>Register</Button>
+      </ButtonGroup>
+      <TabModal isOpen={isOpen} onClose={onClose} title="This is tab modal">
+
+      </TabModal>
     </Box>
   )
 }
