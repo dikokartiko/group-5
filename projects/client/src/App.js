@@ -3,6 +3,7 @@ import "./App.css";
 import LandingPage from "./pages/LandingPage";
 import ForgotPassword from "./pages/ForgotPassword";
 import SuccessPage from "./pages/guest/SuccessPage";
+import ResetPasswordPage from "./pages/guest/ResetPasswordPage";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<LandingPage/>} />
         <Route path="/forgotPassword" element={<ForgotPassword/>} />
         <Route path="/forgotPassword/emailSent" element={<SuccessPage/>} />
+        <Route path="/forgotPassword/resetPassword" element={<ResetPasswordPage/>} />
       </Routes>
     </Router>
   );
