@@ -11,7 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage/>} />
         <Route path="/forgotPassword" element={<ForgotPassword/>} />
-        <Route path="/forgotPassword/emailSent" element={<SuccessPage/>} />
+        <Route path="/forgotPassword/emailSent" element={<SuccessPage purpose="email"/>} />
+        <Route path="/forgotPassword/passwordReset" element={<SuccessPage purpose="reset"/>} />
         <Route path="/forgotPassword/resetPassword" element={<ResetPasswordPage/>} />
       </Routes>
     </Router>
