@@ -1,43 +1,28 @@
-'use strict';
+// models/index.js
+const UserModel = require("./User");
+const RoleModel = require("./Role");
+const CategoryModel = require("./Category");
+const ProductModel = require("./Product");
+const StatusModel = require("./Status");
+const sequelize = require("../config/database");
+const Sequelize = require("sequelize");
+const User = UserModel(sequelize, Sequelize);
+const Role = RoleModel(sequelize, Sequelize);
+const Category = CategoryModel(sequelize, Sequelize);
+const Product = ProductModel(sequelize, Sequelize);
+const Status = StatusModel(sequelize, Sequelize);
 
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
-const process = require('process');
-const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
-const db = {};
+User.associate({ Role, Status });
+Role.associate({ User });
+Product.associate({ Category, Status });
+Category.associate({ Product });
+Status.associate({ Product, User });
 
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
-
-fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (
-      file.indexOf('.') !== 0 &&
-      file !== basename &&
-      file.slice(-3) === '.js' &&
-      file.indexOf('.test.js') === -1
-    );
-  })
-  .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
-  });
-
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
-
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-
-module.exports = db;
+module.exports = {
+  sequelize,
+  User,
+  Role,
+  Category,
+  Product,
+  Status,
+};

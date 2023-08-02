@@ -1,50 +1,53 @@
-const { Sequelize, DataTypes } = require("sequelize");
-const sequelize = require("../config/database");
+// models/User.js
+const bcrypt = require("bcrypt");
 
-const User = sequelize.define("User", {
-  username: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-    validate: {
-      notEmpty: true,
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define("User", {
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-  },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-    validate: {
-      isEmail: true,
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-  },
-  password: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      len: [6],
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-  },
-  phone: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  verified: {
-    type: DataTypes.BOOLEAN,
-    defaultValue: false,
-  },
-  avatar: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  resetPasswordToken: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  resetPasswordTokenExpiresAt: {
-    type: DataTypes.DATE,
-    allowNull: true,
-  },
-});
+    avatar: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    roleId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Roles",
+        key: "id",
+      },
+    },
+    statusId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Statuses",
+        key: "id",
+      },
+    },
+  });
 
-module.exports = User;
+  User.beforeCreate(async (user) => {
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(user.password, salt);
+  });
+
+  User.prototype.validPassword = async function (password) {
+    return await bcrypt.compare(password, this.password);
+  };
+
+  User.associate = (models) => {
+    User.belongsTo(models.Role, { foreignKey: "roleId" });
+    User.belongsTo(models.Status, { foreignKey: "statusId" });
+  };
+
+  return User;
+};
