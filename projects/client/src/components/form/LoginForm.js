@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import axios from "axios";
 import { Box, Button, Divider, Input, Link, Text } from "@chakra-ui/react";
 import { useFormik } from "formik";
@@ -107,4 +105,3 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
->>>>>>> Stashed changes
