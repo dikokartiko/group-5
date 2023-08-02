@@ -4,7 +4,8 @@ import InputWithError from '../components/input/InputWithError'
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 import axios from 'axios';
-import { Box, Button, Input } from '@chakra-ui/react';
+import { Box, Button, Input, Text } from '@chakra-ui/react';
+import { TbLockQuestion } from 'react-icons/tb'
 
 const ForgotPassword = () => {
   const forgotPasswordSchema = useFormik({
@@ -32,7 +33,12 @@ const ForgotPassword = () => {
   });
   return (
     <BlankPage>
-      <Box bgColor={"white"} borderRadius={"md"} boxShadow='md' height="30%" padding={5} textColor={"black"} width={"50%"} >
+      <Box bgColor={"white"} borderRadius={"md"} boxShadow='md' minHeight="30%" padding={5} textAlign={"center"} textColor={"black"} width={"50%"}>
+        <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+          <TbLockQuestion size={70}/>
+        </Box>
+        <Text as="b" fontSize="2xl">Kehilangan kata sandi?</Text>
+        <Text>Kami akan membantu dalam memulihkan akun anda</Text>
         <form onSubmit={forgotPasswordSchema.handleSubmit}>
           <InputWithError errors={forgotPasswordSchema.errors.email} touched={forgotPasswordSchema.touched.email}>
             <Input type="text" name="email" placeholder='Email' bgColor="white" borderColor={"grey"} color={"black"} value={forgotPasswordSchema.values.email} onChange={forgotPasswordSchema.handleChange}/>
