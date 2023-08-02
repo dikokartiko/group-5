@@ -95,4 +95,5 @@ F = Feature\
 &emsp;&emsp;FE-HOME = Home/Landing Page\
 &emsp;&emsp;FE-HEAD = Header\
 &emsp;&emsp;FE-LOGI = Login Form\
+&emsp;&emsp;FE-SUCC = Success Page\
 &emsp;&emsp;FE-VERI = Verification\
