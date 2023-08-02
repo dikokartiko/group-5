@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import axios from 'axios';
 import { Box, Button, Input, Text } from '@chakra-ui/react';
 import { TbLockQuestion } from 'react-icons/tb'
+import FormCard from '../components/card/FormCard';
 
 const ForgotPassword = () => {
   const forgotPasswordSchema = useFormik({
@@ -33,7 +34,7 @@ const ForgotPassword = () => {
   });
   return (
     <BlankPage>
-      <Box bgColor={"white"} borderRadius={"md"} boxShadow='md' minHeight="30%" padding={5} textAlign={"center"} textColor={"black"} width={"50%"}>
+      <FormCard>
         <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
           <TbLockQuestion size={70}/>
         </Box>
@@ -47,7 +48,7 @@ const ForgotPassword = () => {
             <Button type="submit" colorScheme={"green"} flex={1} marginX="5">Kirim</Button>
           </Box>
         </form>
-      </Box>
+      </FormCard>
     </BlankPage>
   )
 }
