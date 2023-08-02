@@ -51,7 +51,7 @@ const ResetPasswordPage = () => {
           <TbLockCog size={70}/>
         </Box>
         <Text as="b" fontSize="2xl">Ubah Kata Sandi</Text>
-        <Text>Kami akan membantu dalam memulihkan akun anda</Text>
+        <Text>Masukkan kata sandi baru</Text>
         <form onSubmit={resetPasswordSchema.handleSubmit}>
             <InputWithError errors={resetPasswordSchema.errors.password} touched={resetPasswordSchema.touched.password}>
                 <InputPassword name="password" value={resetPasswordSchema.values.password} onChange={resetPasswordSchema.handleChange} handleClick={handleClickPassword} show={showPassword}/>
