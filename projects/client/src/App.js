@@ -4,6 +4,7 @@ import LandingPage from "./pages/LandingPage";
 import ForgotPassword from "./pages/ForgotPassword";
 import SuccessPage from "./pages/guest/SuccessPage";
 import ResetPasswordPage from "./pages/guest/ResetPasswordPage";
+import MainPage from "./pages/user/Main";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/forgotPassword/emailSent" element={<SuccessPage purpose="email"/>} />
         <Route path="/forgotPassword/passwordReset" element={<SuccessPage purpose="reset"/>} />
         <Route path="/forgotPassword/resetPassword" element={<ResetPasswordPage/>} />
+        <Route path="/main" element={<MainPage/>} />
       </Routes>
     </Router>
   );
