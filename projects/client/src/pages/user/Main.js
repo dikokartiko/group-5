@@ -1,8 +1,12 @@
+import { Box } from '@chakra-ui/react'
 import React from 'react'
+import BlankPage from '../BlankPage'
 
 const Main = () => {
   return (
-    <div>Main</div>
+    <BlankPage>
+        
+    </BlankPage>
   )
 }
 
