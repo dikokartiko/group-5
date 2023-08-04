@@ -90,15 +90,15 @@ Components:\
 &emsp;&emsp;&emsp;FE-COMP-3 = Input Password\
 &emsp;&emsp;&emsp;FE-COMP-4 = Form Card\
 &emsp;&emsp;&emsp;FE-COMP-5 = Blank Page\
+&emsp;&emsp;FE-HEAD = Header\
+&emsp;&emsp;FE-SIDE = Sidebar\
 
 Pages:\
 &emsp;&emsp;FE-FOFO = Forgot Password Form\
 &emsp;&emsp;FE-FORG = Forgot Password Page\
 &emsp;&emsp;FE-HOME = Home/Landing Page\
-&emsp;&emsp;FE-HEAD = Header\
 &emsp;&emsp;FE-LOGI = Login Form\
 &emsp;&emsp;FE-REGU = Reset Password Page for Guest (pre-User)\
 &emsp;&emsp;FE-REUS = Reset Password Page for User (Admin & Cashier)\
-&emsp;&emsp;FE-SIDE = Sidebar\
 &emsp;&emsp;FE-SUCC = Success Page\
 &emsp;&emsp;FE-VERI = Verification
