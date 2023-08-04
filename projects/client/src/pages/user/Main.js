@@ -1,13 +1,12 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
-import BlankPage from '../BlankPage'
-import Sidebar from '../../components/sidebar/Sidebar'
+import Dashboard from './Dashboard'
 
 const MainPage = () => {
   return (
-    <BlankPage>
-        <Sidebar/>
-    </BlankPage>
+    <Dashboard>
+        This is Main Page
+    </Dashboard>
   )
 }
 
