@@ -96,7 +96,7 @@ Components:\
 Pages:\
 &emsp;&emsp;FE-FOFO = Forgot Password Form\
 &emsp;&emsp;FE-FORG = Forgot Password Page\
-&emsp;&emsp;FE-HOME = Home/Landing Page\
+&emsp;&emsp;FE-HOME = Landing Page of POS/Cashier app (Intro)\
 &emsp;&emsp;FE-LOGI = Login Form\
 &emsp;&emsp;FE-MAIN = Main page of POS app\
 &emsp;&emsp;FE-REGU = Reset Password Page for Guest (pre-User)\
