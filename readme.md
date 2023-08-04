@@ -98,6 +98,7 @@ Pages:\
 &emsp;&emsp;FE-FORG = Forgot Password Page\
 &emsp;&emsp;FE-HOME = Home/Landing Page\
 &emsp;&emsp;FE-LOGI = Login Form\
+&emsp;&emsp;FE-MAIN = Main page of POS app\
 &emsp;&emsp;FE-REGU = Reset Password Page for Guest (pre-User)\
 &emsp;&emsp;FE-REUS = Reset Password Page for User (Admin & Cashier)\
 &emsp;&emsp;FE-SUCC = Success Page\
