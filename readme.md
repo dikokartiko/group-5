@@ -81,6 +81,7 @@ WA = Working Area\
 &emsp;WA = BE = Back End (Server Side)\
 F = Feature\
 &emsp;WA = FE\
+Components:\
 &emsp;&emsp;FE-IPOD = Image: Pos Device\
 &emsp;&emsp;FE-PREP = Preparation (Current version: v1)\
 &emsp;&emsp;FE-COMP = Components\
@@ -89,6 +90,8 @@ F = Feature\
 &emsp;&emsp;&emsp;FE-COMP-3 = Input Password\
 &emsp;&emsp;&emsp;FE-COMP-4 = Form Card\
 &emsp;&emsp;&emsp;FE-COMP-5 = Blank Page\
+
+Pages:\
 &emsp;&emsp;FE-FOFO = Forgot Password Form\
 &emsp;&emsp;FE-FORG = Forgot Password Page\
 &emsp;&emsp;FE-HOME = Home/Landing Page\
@@ -98,4 +101,4 @@ F = Feature\
 &emsp;&emsp;FE-REUS = Reset Password Page for User (Admin & Cashier)\
 &emsp;&emsp;FE-SIDE = Sidebar\
 &emsp;&emsp;FE-SUCC = Success Page\
-&emsp;&emsp;FE-VERI = Verification\
+&emsp;&emsp;FE-VERI = Verification
