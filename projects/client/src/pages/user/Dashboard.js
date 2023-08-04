@@ -7,9 +7,11 @@ const Dashboard = (props) => {
   return (
     <>
       <Header />
-      <Sidebar />
-      <Box display="flex" height="100vh" width="100%" bgColor={"lightgrey"}>
-        {props.children}
+      <Box display={"flex"} flexDirection={"row"}>
+        <Sidebar />
+        <Box display="flex" height="100vh" width="100%" bgColor={"lightgrey"}>
+          {props.children}
+        </Box>
       </Box>
     </>
   )
