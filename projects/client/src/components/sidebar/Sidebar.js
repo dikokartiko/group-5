@@ -15,36 +15,43 @@ const Sidebar = () => {
     //         </DrawerBody>
     //     </DrawerContent>
     // </Drawer>
-    <Box height="90vh" width={["", "15%"]} boxShadow={'md'}>
-        <Box display={"flex"} alignItems={"center"} paddingX={5} paddingY={2} bgColor={"transparent"} borderBottom={"1px"} borderColor={"lightgrey"}>
+    <Box height="90vh" width={["", "15%"]} boxShadow={'md'} paddingX={5}>
+        <Box marginTop={5} borderTop={"1px"}>
+            <Text as="b">Kasir</Text>
+        </Box>
+        <Box display={"flex"} alignItems={"center"} paddingY={2} bgColor={"transparent"}>
             <Box paddingRight={5}>
                 <TbCalculator size={30} />
             </Box>
-            <Text fontSize={"xl"}>Cashier</Text>
+            <Text as="b" fontSize={"xl"}>Kasir</Text>
         </Box>
-        <Box display={"flex"} alignItems={"center"} paddingX={5} paddingY={2} bgColor={"transparent"} borderBottom={"1px"} borderColor={"lightgrey"}>
+
+        <Box marginTop={5} borderTop={"1px"}>
+            <Text as="b">Admin</Text>
+        </Box>
+        <Box display={"flex"} alignItems={"center"} paddingY={2} bgColor={"transparent"}>
             <Box paddingRight={5}>
                 <TbBoxSeam size={30} />
             </Box>
-            <Text fontSize={"xl"}>Produk</Text>
+            <Text fontSize={"lg"}>Produk</Text>
         </Box>
-        <Box display={"flex"} alignItems={"center"} paddingX={5} paddingY={2} bgColor={"transparent"} borderBottom={"1px"} borderColor={"lightgrey"}>
+        <Box display={"flex"} alignItems={"center"} paddingY={2} bgColor={"transparent"}>
             <Box paddingRight={5}>
                 <TbCategory size={30} />
             </Box>
-            <Text fontSize={"xl"}>Kategori</Text>
+            <Text fontSize={"lg"}>Kategori</Text>
         </Box>
-        <Box display={"flex"} alignItems={"center"} paddingX={5} paddingY={2} bgColor={"transparent"} borderBottom={"1px"} borderColor={"lightgrey"}>
+        <Box display={"flex"} alignItems={"center"} paddingY={2} bgColor={"transparent"}>
             <Box paddingRight={5}>
                 <TbUsers size={30} />
             </Box>
-            <Text fontSize={"xl"}>User Manajemen</Text>
+            <Text fontSize={"lg"}>User Manajemen</Text>
         </Box>
-        <Box display={"flex"} alignItems={"center"} paddingX={5} paddingY={2} bgColor={"transparent"} borderBottom={"1px"} borderColor={"lightgrey"}>
+        <Box display={"flex"} alignItems={"center"} paddingY={2} bgColor={"transparent"}>
             <Box paddingRight={5}>
                 <TbReportAnalytics size={30} />
             </Box>
-            <Text fontSize={"xl"}>Laporan Penjualan</Text>
+            <Text fontSize={"lg"}>Laporan Penjualan</Text>
         </Box> 
     </Box>
   )
