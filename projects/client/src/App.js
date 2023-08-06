@@ -17,6 +17,7 @@ function App() {
         <Route path="/forgotPassword/passwordReset" element={<SuccessPage purpose="reset"/>} />
         <Route path="/forgotPassword/resetPassword" element={<ResetPasswordPage/>} />
         <Route path="/main" element={<MainPage/>} />
+        <Route path="/test" element={<TestPage/>} />
       </Routes>
     </Router>
   );
