@@ -4,7 +4,8 @@ import LandingPage from "./pages/LandingPage";
 import ForgotPassword from "./pages/ForgotPassword";
 import SuccessPage from "./pages/guest/SuccessPage";
 import ResetPasswordPage from "./pages/guest/ResetPasswordPage";
-import MainPage from "./pages/user/Main";
+import MainPage from "./pages/user/MainPage";
+import TestPage from "./pages/TestPage";
 
 function App() {
   return (
