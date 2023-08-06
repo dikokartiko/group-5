@@ -1,9 +1,11 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const Header = () => {
   return (
-    <Box>Header</Box>
+    <Box boxShadow={'md'} height={"10vh"}>
+        <Text textAlign="center" as="b" fontSize="6xl">TUPO</Text>
+    </Box>
   )
 }
 
