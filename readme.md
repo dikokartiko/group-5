@@ -75,12 +75,14 @@ Install dependency in server project. Use `npm install:server:dev` for dev depen
 4. npm install react-icons --save
 
 • Versioning Code:\
-(WA)-(F)-v(CU)\
+(WA)-(G)-v(CU)\
 WA = Working Area\
 &emsp;WA = FE = Front End (Client Side)\
 &emsp;WA = BE = Back End (Server Side)\
-F = Feature\
-&emsp;WA = FE\
+G = Group\
+CU = Component Update version\
+
+&emsp;(WA) = FE\
 Components:\
 &emsp;&emsp;FE-IPOD = Image: Pos Device\
 &emsp;&emsp;FE-PREP = Preparation (Current version: v1)\
