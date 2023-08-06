@@ -1,4 +1,4 @@
-import { Avatar, Box, HStack, Text } from '@chakra-ui/react'
+import { Avatar, Badge, Box, HStack, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
             <Avatar name="Dimas Ivon Anggitama" src="#" marginRight={5}/>
             <Box>
                 <Text>Dimas Ivon Anggitama</Text>
-                <Text>Admin</Text>
+                <Badge colorScheme='red'>Admin</Badge>
             </Box>
         </HStack>
     </Box>
