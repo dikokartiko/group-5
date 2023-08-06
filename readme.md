@@ -90,6 +90,8 @@ Components:\
 &emsp;&emsp;&emsp;FE-COMP-3 = Input Password\
 &emsp;&emsp;&emsp;FE-COMP-4 = Form Card\
 &emsp;&emsp;&emsp;FE-COMP-5 = Blank Page\
+
+Section:\
 &emsp;&emsp;FE-CART = Cart\
 &emsp;&emsp;FE-DASH = Dashboard\
 &emsp;&emsp;FE-HEAD = Header\
