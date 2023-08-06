@@ -4,9 +4,11 @@ import Dashboard from './Dashboard'
 
 const MainPage = () => {
   return (
-    <Dashboard>
-        This is Main Page
-    </Dashboard>
+    <>
+        <Dashboard>
+            This is Main Page
+        </Dashboard>
+    </>
   )
 }
 
