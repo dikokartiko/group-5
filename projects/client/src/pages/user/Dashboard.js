@@ -2,6 +2,7 @@ import React from 'react'
 import { Box } from '@chakra-ui/react'
 import Header from '../../components/section/Header'
 import Sidebar from '../../components/section/Sidebar'
+import Cart from '../../components/section/Cart'
 
 const Dashboard = (props) => {
   return (
@@ -12,6 +13,7 @@ const Dashboard = (props) => {
         <Box display={"flex"} width="100%" bgColor={"lightgrey"}>
           {props.children}
         </Box>
+        <Cart/>
       </Box>
     </Box>
   )
