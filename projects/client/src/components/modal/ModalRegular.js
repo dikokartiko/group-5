@@ -11,7 +11,7 @@ const ModalRegular = (props) => {
             <ModalBody textAlign={"center"}>{props.children}</ModalBody>
             <ModalFooter>
                 {
-                    (props.secondaryButton)? <Button variant='ghost' marginRight={5}>{props.secondaryButton}</Button>
+                    (props.secondaryButton)? <Button variant='ghost' marginRight={5} onClick={props.onClickSecondaryButton}>{props.secondaryButton}</Button>
                     : <></>
                 }
                 <Button colorScheme={props.defaultButtonColor} mr={3} onClick={props.onClose}>{props.primaryButton}</Button>
