@@ -1,4 +1,4 @@
-import { Box, Image, Table, TableContainer, Tbody, Td, Text, Tfoot, Th, Thead, Tr } from '@chakra-ui/react'
+import { Box, Divider, Image, Table, TableContainer, Tbody, Td, Text, Tfoot, Th, Thead, Tr } from '@chakra-ui/react'
 import React from 'react'
 import { TbShoppingCartPlus } from 'react-icons/tb'
 
@@ -19,6 +19,54 @@ const Cart = () => {
                         <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
                         <Box maxWidth={"11%"}>999x</Box>
                         <Box maxWidth={"100%"}>Rp. 99.999.000,-</Box>
+                    </Box>
+                    <Box borderBottomColor={"gray.300"} borderBottomWidth={1} marginTop={5} marginBottom={5}/>
+                    <Box display={"flex"} justifyContent={"space-between"}>
+                        <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
+                        <Box maxWidth={"11%"}>999x</Box>
+                        <Box maxWidth={"100%"}>Rp. 99.999.000,-</Box>
+                    </Box>
+                    <Box borderBottomColor={"gray.300"} borderBottomWidth={1} marginTop={5} marginBottom={5}/>
+                    <Box display={"flex"} justifyContent={"space-between"}>
+                        <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
+                        <Box maxWidth={"11%"}>999x</Box>
+                        <Box maxWidth={"100%"}>Rp. 99.999.000,-</Box>
+                    </Box>
+                    <Box borderBottomColor={"gray.300"} borderBottomWidth={1} marginTop={5} marginBottom={5}/>
+                    <Box display={"flex"} justifyContent={"space-between"}>
+                        <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
+                        <Box maxWidth={"11%"}>1x</Box>
+                        <Box maxWidth={"100%"}>Rp. 11.000,-</Box>
+                    </Box>
+                    <Box borderBottomColor={"gray.300"} borderBottomWidth={1} marginTop={5} marginBottom={5}/>
+                    <Box display={"flex"} justifyContent={"space-between"}>
+                        <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
+                        <Box maxWidth={"11%"}>1x</Box>
+                        <Box maxWidth={"100%"}>Rp. 11.000,-</Box>
+                    </Box>
+                    <Box borderBottomColor={"gray.300"} borderBottomWidth={1} marginTop={5} marginBottom={5}/>
+                    <Box display={"flex"} justifyContent={"space-between"}>
+                        <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
+                        <Box maxWidth={"11%"}>1x</Box>
+                        <Box maxWidth={"100%"}>Rp. 11.000,-</Box>
+                    </Box>
+                    <Box borderBottomColor={"gray.300"} borderBottomWidth={1} marginTop={5} marginBottom={5}/>
+                    <Box display={"flex"} justifyContent={"space-between"}>
+                        <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
+                        <Box maxWidth={"11%"}>1x</Box>
+                        <Box maxWidth={"100%"}>Rp. 11.000,-</Box>
+                    </Box>
+                    <Box borderBottomColor={"gray.300"} borderBottomWidth={1} marginTop={5} marginBottom={5}/>
+                    <Box display={"flex"} justifyContent={"space-between"}>
+                        <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
+                        <Box maxWidth={"11%"}>1x</Box>
+                        <Box maxWidth={"100%"}>Rp. 11.000,-</Box>
+                    </Box>
+                    <Box borderBottomColor={"gray.300"} borderBottomWidth={1} marginTop={5} marginBottom={5}/>
+                    <Box display={"flex"} justifyContent={"space-between"}>
+                        <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
+                        <Box maxWidth={"11%"}>1x</Box>
+                        <Box maxWidth={"100%"}>Rp. 11.000,-</Box>
                     </Box>
                 </Box>
                 <Box display={"flex"} flexDirection={'column'} justifyContent={"start"} alignItems={"center"} padding={5} boxShadow={"md"} bgColor={"white"} bgImage={"url('/decoration/A Box.drawio.png')"} bgRepeat={"repeat"}>
