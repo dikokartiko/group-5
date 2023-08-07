@@ -9,7 +9,7 @@ const RegularModal = (props) => {
         <ModalContent>
             <ModalHeader>{props.title}</ModalHeader>
             <ModalCloseButton />
-            {props.body} {/* <-- This is Modal body*/}
+            <ModalBody>{props.body}</ModalBody>
             <ModalFooter>
                 {
                     (props.secondaryButton)? <Button variant='ghost'>{props.secondaryButton}</Button>
