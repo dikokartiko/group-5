@@ -1,5 +1,6 @@
-import { Button, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger } from '@chakra-ui/react'
+import { Button, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, Text } from '@chakra-ui/react'
 import React from 'react'
+import { TbPencil, TbTrash } from 'react-icons/tb'
 
 const PopoverButton = (props) => {
   return (
@@ -14,8 +15,8 @@ const PopoverButton = (props) => {
             <PopoverArrow bg='blue.800' />
             <PopoverCloseButton />
             <PopoverBody display={"flex"} justifyContent={"space-between"}>
-                <Button colorScheme='red' flex={1} marginRight={3}>Hapus</Button>
-                <Button colorScheme='green' flex={1}>Ubah</Button>
+                <Button colorScheme='red' flex={1} marginRight={3}><TbTrash /><Text marginLeft={3}>Hapus</Text></Button>
+                <Button colorScheme='green' flex={1}><TbPencil /><Text marginLeft={3}>Ubah</Text></Button>
             </PopoverBody>
         </PopoverContent>
     </Popover>
