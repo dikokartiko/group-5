@@ -1,4 +1,4 @@
-import { Box, Divider, Image, Table, TableContainer, Tbody, Td, Text, Tfoot, Th, Thead, Tr } from '@chakra-ui/react'
+import { Box, Button, Divider, Image, Table, TableContainer, Tbody, Td, Text, Tfoot, Th, Thead, Tr } from '@chakra-ui/react'
 import React from 'react'
 import { TbShoppingCartPlus } from 'react-icons/tb'
 
@@ -69,11 +69,12 @@ const Cart = () => {
                         <Box maxWidth={"100%"}>Rp. 11.000,-</Box>
                     </Box>
                 </Box>
-                <Box display={"flex"} flexDirection={'column'} justifyContent={"start"} alignItems={"center"} padding={5} boxShadow={"md"} bgColor={"white"} bgImage={"url('/decoration/A Box.drawio.png')"} bgRepeat={"repeat"}>
-                    <Box>
-                        <TbShoppingCartPlus size={70} />
+                <Box display={"flex"} flexDirection={'column'} padding={5} boxShadow={"md"} bgColor={"white"} bgImage={"url('/decoration/A Box.drawio.png')"} bgRepeat={"repeat"}>
+                    <Box display={"flex"} justifyContent={"space-between"} alignItems={"center"} paddingBottom={5}>
+                        <Text maxWidth={"15%"}>Total</Text>
+                        <Text as={"b"} fontSize={"2xl"} maxWidth={"90%"}>Rp. 99.999.000,-</Text>
                     </Box>
-                    <Text as="b" fontSize="2xl">Keranjang</Text>
+                    <Button colorScheme='green' boxShadow={"md"}>Buat Pesanan</Button>
                 </Box>
             </Box>
             <Image src="/decoration/Ripped_Papper_Edited.drawio.png" alt="Gambar" height={"2%"}/>
