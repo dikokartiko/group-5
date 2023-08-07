@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Image, Text, useDisclosure } from '@chakra-ui/react'
+import { Box, Button, Image, Text, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
 import { TbShoppingCartPlus, TbShoppingCartX } from 'react-icons/tb'
 import PopoverButton from '../modal/PopoverButton'
