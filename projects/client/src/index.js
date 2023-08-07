@@ -1,20 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { ChakraProvider } from '@chakra-ui/react'
+import React from "react";
+import ReactDOM from "react-dom";
+import { HashRouter, Switch, Redirect } from "react-router-dom";
+import WrappedRoute from "./WrappedRoute"; // Update this line
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <ChakraProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </ChakraProvider>
-);
+import AuthLayout from "layouts/Auth.js";
+import AdminLayout from "layouts/Admin.js";
+import CashierLayout from "layouts/Cashier.js";
+import RTLLayout from "layouts/RTL.js";
+import SignIn from "views/Auth/SignIn";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const App = () => {
+  return (
+    <HashRouter>
+      <Switch>
+        <WrappedRoute path={`/auth`} component={AuthLayout} />
+        <WrappedRoute path={`/admin`} component={AdminLayout} />
+        <WrappedRoute path={`/cashier`} component={CashierLayout} />
+        <WrappedRoute path={`/rtl`} component={RTLLayout} />
+        <WrappedRoute path={`/signin`} component={SignIn} />
+        <Redirect from={`/`} to="/auth/signin" />
+      </Switch>
+    </HashRouter>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById("root"));
