@@ -3,7 +3,7 @@ import React from 'react'
 
 const ModalRegular = (props) => {
   return (
-    <Modal isOpen={props.isOpen} onClose={props.onClose}>
+    <Modal isOpen={props.isOpen} onClose={props.onCloseX}>
         <ModalOverlay />
         <ModalContent>
             <ModalHeader>{props.title}</ModalHeader>
