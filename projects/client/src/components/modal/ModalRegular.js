@@ -8,7 +8,7 @@ const ModalRegular = (props) => {
         <ModalContent>
             <ModalHeader>{props.title}</ModalHeader>
             <ModalCloseButton />
-            <ModalBody>{props.body}</ModalBody>
+            <ModalBody textAlign={"center"}>{props.children}</ModalBody>
             <ModalFooter>
                 {
                     (props.secondaryButton)? <Button variant='ghost'>{props.secondaryButton}</Button>
