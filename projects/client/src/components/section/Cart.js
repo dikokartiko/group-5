@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Image, Table, TableContainer, Tbody, Td, Text, Tfoot, Th, Thead, Tr } from '@chakra-ui/react'
+import { Box, Button, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 import { TbShoppingCartPlus } from 'react-icons/tb'
 
