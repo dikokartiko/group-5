@@ -87,11 +87,11 @@ Components:\
 &emsp;&emsp;FE-IPOD = Image: Pos Device\
 &emsp;&emsp;FE-PREP = Preparation (Current version: v1)\
 &emsp;&emsp;FE-COMP = Components\
-&emsp;&emsp;&emsp;FE-COMP-1 = Regular Modal\
 &emsp;&emsp;&emsp;FE-COMP-2 = Input With Error\
 &emsp;&emsp;&emsp;FE-COMP-3 = Input Password\
 &emsp;&emsp;&emsp;FE-COMP-4 = Form Card\
 &emsp;&emsp;&emsp;FE-COMP-5 = Blank Page\
+&emsp;&emsp;FE-MORE = Modal Regular\
 &emsp;&emsp;FE-POBU = Popover with Button only\
 
 Section:\
