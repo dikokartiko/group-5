@@ -3,10 +3,7 @@ import React from 'react'
 
 const PopoverButton = (props) => {
   return (
-    <Popover
-      placement='bottom'
-      closeOnBlur={false}
-    >
+    <Popover placement='left' closeOnBlur={false}>
         <PopoverTrigger>
             {props.children}
         </PopoverTrigger>
