@@ -1,14 +1,14 @@
 import { Box, Button, ButtonGroup, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverFooter, PopoverHeader, PopoverTrigger } from '@chakra-ui/react'
 import React from 'react'
 
-const PopoverButton = () => {
+const PopoverButton = (props) => {
   return (
     <Popover
       placement='bottom'
       closeOnBlur={false}
     >
         <PopoverTrigger>
-            <Button>Trigger</Button>
+            {props.children}
         </PopoverTrigger>
         <PopoverContent color='white' bg='blue.800' borderColor='blue.800'>
             <PopoverHeader pt={4} fontWeight='bold' border='0'>
