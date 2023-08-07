@@ -17,19 +17,6 @@ const PopoverButton = (props) => {
                 <Button colorScheme='red'>Hapus</Button>
                 <Button colorScheme='green'>Ubah</Button>
             </PopoverBody>
-            <PopoverFooter
-                border='0'
-                display='flex'
-                alignItems='center'
-                justifyContent='space-between'
-                pb={4}
-            >
-            <Box fontSize='sm'>Step 2 of 4</Box>
-                <ButtonGroup size='sm'>
-                    <Button colorScheme='green'>Setup Email</Button>
-                    <Button colorScheme='blue'>Next</Button>
-                </ButtonGroup>
-            </PopoverFooter>
         </PopoverContent>
     </Popover>
   )
