@@ -5,7 +5,8 @@ import PopoverButton from '../modal/PopoverButton'
 import ModalRegular from '../modal/ModalRegular'
 
 const Cart = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const modal = useDisclosure();
+    const popover = useDisclosure();
     return (
         <Box maxHeight={"90vh"} width={["", "30%"]} padding={5} bgColor={"blackAlpha.50"} overflowY={"auto"}>
             <Box width={"100%"}>
@@ -18,14 +19,14 @@ const Cart = () => {
                         <Text as="b" fontSize="2xl">Keranjang</Text>
                     </Box>
                     <Box display={"flex"} flexDirection={'column'} borderBottomColor={"gray.300"} borderBottomStyle={"dashed"} borderBottomWidth={3} boxShadow={"md"} bgColor={"white"} bgImage={"url('/decoration/A Box.drawio.png')"} bgRepeat={"repeat"}>
-                        <PopoverButton onClickButton1={onOpen}>
+                        <PopoverButton onClickButton1={modal.onOpen} onClose={popover.onClose} isOpen={popover.isOpen} onOpen={popover.onOpen}>
                             <Box display={"flex"} justifyContent={"space-between"} padding={5} _hover={{background: "#FEEBC8"}}>
                                 <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
                                 <Box maxWidth={"12%"}>999x</Box>
                                 <Box maxWidth={"100%"}>Rp. 99.999.000,-</Box>
                             </Box>
                         </PopoverButton>
-                        <ModalRegular isOpen={isOpen} onClose={onClose} title="Hapus Item" body={<Text>Apakah anda yakin ingin menghapus item ini?</Text>} defaultButtonColor="red" primaryButton="Hapus"></ModalRegular>
+                        <ModalRegular isOpen={modal.isOpen} onClose={() => {popover.onClose(); modal.onClose()}} onCloseX={modal.onClose} title="Hapus Item" body={<Text>Apakah anda yakin ingin menghapus item ini?</Text>} defaultButtonColor="red" primaryButton="Hapus"></ModalRegular>
                         <Box borderBottomColor={"gray.300"} borderBottomWidth={1} marginX={5}/>
                         <Box display={"flex"} justifyContent={"space-between"} padding={5} _hover={{background: "#FEEBC8"}}>
                             <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
