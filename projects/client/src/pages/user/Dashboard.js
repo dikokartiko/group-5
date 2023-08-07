@@ -6,7 +6,7 @@ import Cart from '../../components/section/Cart'
 
 const Dashboard = (props) => {
   return (
-    <Box height={"100vh"}>
+    <Box height={"90vh"}>
       <Header />
       <Box display={"flex"} flexDirection={"row"}>
         <Sidebar />
