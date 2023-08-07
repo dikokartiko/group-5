@@ -2,7 +2,7 @@ import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, 
 import React from 'react'
 import LoginForm from '../form/LoginForm'
 
-const RegularModal = (props) => {
+const ModalRegular = (props) => {
   return (
     <Modal isOpen={props.isOpen} onClose={props.onClose}>
         <ModalOverlay />
@@ -22,4 +22,4 @@ const RegularModal = (props) => {
   )
 }
 
-export default RegularModal
+export default ModalRegular
