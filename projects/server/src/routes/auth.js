@@ -5,11 +5,13 @@ const {
   login,
   resetPassword,
   handleResetPassword,
+  getUserData,
 } = require("../controllers/auth");
 const validateRequest = require("../middleware/validateRequest");
 const {
   updateProfilePicture,
   getProfilePicture,
+  getProfilePictureId,
 } = require("../controllers/avatar");
 const upload = require("../middleware/upload");
 const authenticate = require("../middleware/authenticate");
@@ -56,4 +58,7 @@ router.put(
 
 router.get("/profile-picture", authenticate, getProfilePicture);
 
+router.get("/avatar/:userId", getProfilePictureId);
+
+router.get("/", authenticate, getUserData);
 module.exports = router;

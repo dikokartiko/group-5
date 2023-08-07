@@ -26,8 +26,8 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: true,
       },
-      item: {
-        type: DataTypes.STRING,
+      stock: {
+        type: Sequelize.STRING,
         allowNull: true,
       },
       categoryId: {
@@ -37,12 +37,9 @@ module.exports = {
           key: "id",
         },
       },
-      statusId: {
+      status: {
         type: Sequelize.INTEGER,
-        references: {
-          model: "Statuses",
-          key: "id",
-        },
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,

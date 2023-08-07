@@ -3,20 +3,24 @@ const UserModel = require("./User");
 const RoleModel = require("./Role");
 const CategoryModel = require("./Category");
 const ProductModel = require("./Product");
-const StatusModel = require("./Status");
+const TransactionModel = require("./transaction");
+const CartModel = require("./cart");
 const sequelize = require("../config/database");
 const Sequelize = require("sequelize");
 const User = UserModel(sequelize, Sequelize);
 const Role = RoleModel(sequelize, Sequelize);
 const Category = CategoryModel(sequelize, Sequelize);
 const Product = ProductModel(sequelize, Sequelize);
-const Status = StatusModel(sequelize, Sequelize);
 
-User.associate({ Role, Status });
+const Transaction = TransactionModel(sequelize, Sequelize);
+const Cart = CartModel(sequelize, Sequelize);
+
+User.associate({ Role });
 Role.associate({ User });
-Product.associate({ Category, Status });
+Product.associate({ Category });
 Category.associate({ Product });
-Status.associate({ Product, User });
+Transaction.associate({ User, Product }); // Update this line
+Cart.associate({ Product });
 
 module.exports = {
   sequelize,
@@ -24,5 +28,6 @@ module.exports = {
   Role,
   Category,
   Product,
-  Status,
+  Transaction,
+  Cart,
 };

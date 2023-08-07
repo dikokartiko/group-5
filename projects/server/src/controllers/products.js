@@ -1,9 +1,11 @@
 // controllers/products.js
 const { Product, Category } = require("../models");
 const { Op } = require("sequelize");
+const fs = require("fs");
+const path = require("path");
 
 exports.createProduct = async (req, res) => {
-  const { name, price, categoryId, description, statusId, item } = req.body;
+  const { name, price, categoryId, description, status, stock } = req.body;
   const image = req.file ? req.file.path : null;
   try {
     const product = await Product.create({
@@ -12,8 +14,8 @@ exports.createProduct = async (req, res) => {
       price,
       categoryId,
       description,
-      statusId,
-      item,
+      status,
+      stock,
     });
     res.status(201).send(product);
   } catch (error) {
@@ -25,7 +27,7 @@ exports.createProduct = async (req, res) => {
 
 exports.updateProduct = async (req, res) => {
   const { id } = req.params;
-  const { name, price, categoryId, description, statusId, item } = req.body;
+  const { name, price, categoryId, description, status, stock } = req.body;
   const image = req.file ? req.file.path : null;
   try {
     const product = await Product.findByPk(id);
@@ -38,8 +40,8 @@ exports.updateProduct = async (req, res) => {
     if (price) product.price = price;
     if (categoryId) product.categoryId = categoryId;
     if (description) product.description = description;
-    if (statusId) product.statusId = statusId;
-    if (item) product.item = item;
+    if (status) product.status = status;
+    if (stock) product.stock = stock;
 
     await product.save();
     res.send(product);
@@ -51,7 +53,7 @@ exports.updateProduct = async (req, res) => {
 };
 
 exports.getProducts = async (req, res) => {
-  const { page = 1, limit = 10, category, name, sort, statusId } = req.query;
+  const { page = 1, limit = 10, category, name, sort, status } = req.query;
   const offset = (page - 1) * limit;
 
   let whereClause = {};
@@ -61,8 +63,8 @@ exports.getProducts = async (req, res) => {
   if (name) {
     whereClause.name = { [Op.like]: `%${name}%` };
   }
-  if (statusId) {
-    whereClause.statusId = statusId;
+  if (status) {
+    whereClause.status = status;
   }
 
   let orderClause = [];
@@ -75,6 +77,10 @@ exports.getProducts = async (req, res) => {
       orderClause.push(["price", "ASC"]);
     } else if (sort === "price_desc") {
       orderClause.push(["price", "DESC"]);
+    } else if (sort === "created_asc") {
+      orderClause.push(["createdAt", "ASC"]);
+    } else if (sort === "created_desc") {
+      orderClause.push(["createdAt", "DESC"]);
     }
   }
 
@@ -96,5 +102,26 @@ exports.getProducts = async (req, res) => {
     res
       .status(500)
       .send({ error: "An error occurred while getting the products" });
+  }
+};
+
+exports.getProductImage = async (req, res) => {
+  const id = req.params.productId;
+  try {
+    const product = await Product.findByPk(id);
+    const filePath = path.resolve(product.image);
+    if (!product) {
+      return res.status(404).send({ error: "Product not found" });
+    }
+    if (!product.image) {
+      return res.status(404).send({ error: "Product image not found" });
+    }
+    console.log(product.image);
+    fs.existsSync(path.resolve(product.image));
+    res.sendFile(path.resolve(product.image));
+  } catch (error) {
+    res
+      .status(500)
+      .send({ error: "An error occurred while getting the product image" });
   }
 };
