@@ -14,8 +14,8 @@ const PopoverButton = (props) => {
             <PopoverArrow bg='blue.800' />
             <PopoverCloseButton />
             <PopoverBody display={"flex"} justifyContent={"space-between"}>
-                <Button colorScheme='red'>Hapus</Button>
-                <Button colorScheme='green'>Ubah</Button>
+                <Button colorScheme='red' flex={1} marginRight={3}>Hapus</Button>
+                <Button colorScheme='green' flex={1}>Ubah</Button>
             </PopoverBody>
         </PopoverContent>
     </Popover>
