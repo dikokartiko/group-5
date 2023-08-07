@@ -4,7 +4,7 @@ import { TbPencil, TbTrash } from 'react-icons/tb'
 
 const PopoverButton = (props) => {
   return (
-    <Popover placement='left-end' closeOnBlur={false}>
+    <Popover placement='left-end' closeOnBlur={false} onClose={props.onClose} isOpen={props.isOpen} onOpen={props.onOpen}>
         <PopoverTrigger>
             {props.children}
         </PopoverTrigger>
