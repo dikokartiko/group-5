@@ -9,7 +9,7 @@ const PopoverButton = (props) => {
         </PopoverTrigger>
         <PopoverContent color='white' bg='blue.800' borderColor='blue.800'>
             <PopoverHeader pt={4} fontWeight='bold' border='0'>
-                Manage Your Channels
+                Pilih aksi
             </PopoverHeader>
             <PopoverArrow bg='blue.800' />
             <PopoverCloseButton />
