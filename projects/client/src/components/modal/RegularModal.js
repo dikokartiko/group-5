@@ -15,7 +15,7 @@ const RegularModal = (props) => {
                     (props.secondaryButton)? <Button variant='ghost'>{props.secondaryButton}</Button>
                     : <></>
                 }
-                <Button colorScheme='green' mr={3} onClick={props.onClose}>{props.primaryButton}</Button>
+                <Button colorScheme={props.defaultButtonColor} mr={3} onClick={props.onClose}>{props.primaryButton}</Button>
             </ModalFooter>
         </ModalContent>
     </Modal>
