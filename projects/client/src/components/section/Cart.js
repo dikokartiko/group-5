@@ -1,12 +1,16 @@
 import { Box, Button, Divider, Image, Text, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
-import { TbShoppingCartPlus } from 'react-icons/tb'
+import { TbShoppingCartPlus, TbShoppingCartX } from 'react-icons/tb'
 import PopoverButton from '../modal/PopoverButton'
 import ModalRegular from '../modal/ModalRegular'
 
 const Cart = () => {
     const modal = useDisclosure();
     const popover = useDisclosure();
+    const modalTitle = <Box display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
+        <TbShoppingCartX size={70}/>
+        <Text as={"b"} fontSize="2xl">Hapus Item</Text>
+    </Box>;
     return (
         <Box maxHeight={"90vh"} width={["", "30%"]} padding={5} bgColor={"blackAlpha.50"} overflowY={"auto"}>
             <Box width={"100%"}>
@@ -26,7 +30,7 @@ const Cart = () => {
                                 <Box maxWidth={"100%"}>Rp. 99.999.000,-</Box>
                             </Box>
                         </PopoverButton>
-                        <ModalRegular isOpen={modal.isOpen} onClose={() => {popover.onClose(); modal.onClose()}} onCloseX={modal.onClose} title="Hapus Item" body={<Text>Apakah anda yakin ingin menghapus item ini?</Text>} defaultButtonColor="red" primaryButton="Hapus"></ModalRegular>
+                        <ModalRegular isOpen={modal.isOpen} onClose={() => {popover.onClose(); modal.onClose()}} onCloseX={modal.onClose} title={modalTitle} body={<Text>Apakah anda yakin ingin menghapus item ini?</Text>} defaultButtonColor="red" primaryButton="Hapus"></ModalRegular>
                         <Box borderBottomColor={"gray.300"} borderBottomWidth={1} marginX={5}/>
                         <Box display={"flex"} justifyContent={"space-between"} padding={5} _hover={{background: "#FEEBC8"}}>
                             <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
