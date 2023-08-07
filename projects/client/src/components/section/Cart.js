@@ -9,7 +9,7 @@ const Cart = () => {
     const popover = useDisclosure();
     const modalTitle = <Box display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
         <TbShoppingCartX size={70}/>
-        <Text as={"b"} fontSize="2xl">Hapus Item</Text>
+        <Text as={"b"} fontSize="2xl">Hapus Item?</Text>
     </Box>;
     return (
         <Box maxHeight={"90vh"} width={["", "30%"]} padding={5} bgColor={"blackAlpha.50"} overflowY={"auto"}>
@@ -30,7 +30,20 @@ const Cart = () => {
                                 <Box maxWidth={"100%"}>Rp. 99.999.000,-</Box>
                             </Box>
                         </PopoverButton>
-                        <ModalRegular isOpen={modal.isOpen} onClose={() => {popover.onClose(); modal.onClose()}} onCloseX={modal.onClose} title={modalTitle} body={<Text>Apakah anda yakin ingin menghapus item ini?</Text>} defaultButtonColor="red" primaryButton="Hapus"></ModalRegular>
+                        <ModalRegular 
+                            isOpen={modal.isOpen} 
+                            onClose={() => {popover.onClose(); modal.onClose()}} 
+                            onCloseX={modal.onClose} 
+                            title={modalTitle} 
+                            defaultButtonColor="red" 
+                            primaryButton="Hapus"
+                            secondaryButton="Batalkan"
+                            onClickSecondaryButton={modal.onClose}
+                        >
+                            <Text fontSize={"lg"}>Apakah anda yakin ingin menghapus item ini?</Text>
+                            <Text fontSize={"sm"}>Item yang sudah dihapus tidak dapat dikembalikan lagi</Text>
+                        </ModalRegular>
+
                         <Box borderBottomColor={"gray.300"} borderBottomWidth={1} marginX={5}/>
                         <Box display={"flex"} justifyContent={"space-between"} padding={5} _hover={{background: "#FEEBC8"}}>
                             <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
