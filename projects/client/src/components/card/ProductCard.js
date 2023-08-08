@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Image, Stack, Text } from '@chakra-ui/react'
+import { Card, CardBody, Heading, Image, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const ProductCard = () => {
