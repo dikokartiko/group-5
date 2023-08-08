@@ -8,7 +8,7 @@ const Dashboard = (props) => {
     <Box height={"90vh"}>
       <Header />
       <Box display={"flex"} flexDirection={"row"}>
-        <Sidebar />
+        <Sidebar role={props.role}/>
         <Box display={"flex"} maxHeight={"90vh"} width="100%" bgColor={"lightgrey"} overflowY={"auto"}>
           {props.children}
         </Box>
