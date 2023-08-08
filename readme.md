@@ -85,6 +85,8 @@ CU = Component Update version\
 &emsp;(WA) = FE\
 Components:\
 &emsp;&emsp;FE-IPOD = Image: Pos Device\
+&emsp;&emsp;FE-IWHB = Image: White Box\
+&emsp;&emsp;FE-IRIP = Image: Ripped Paper\
 &emsp;&emsp;FE-PREP = Preparation (Current version: v1)\
 &emsp;&emsp;FE-COMP = Components\
 &emsp;&emsp;&emsp;FE-COMP-2 = Input With Error\
