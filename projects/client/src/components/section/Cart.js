@@ -1,6 +1,6 @@
 import { Box, Button, HStack, Image, Text, useDisclosure } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import { TbMinus, TbPencil, TbPlus, TbShoppingCartPlus, TbShoppingCartX } from 'react-icons/tb'
+import { TbMinus, TbPencil, TbPlus, TbShoppingCart, TbShoppingCartX } from 'react-icons/tb'
 import PopoverButton from '../modal/PopoverButton'
 import ModalRegular from '../modal/ModalRegular'
 
@@ -46,7 +46,7 @@ const Cart = () => {
                 <Box>
                     <Box display={"flex"} flexDirection={'column'} justifyContent={"start"} alignItems={"center"} padding={5} borderBottomColor={"gray.300"} borderBottomStyle={"dashed"} borderBottomWidth={3} boxShadow={"md"} bgColor={"white"} bgImage={"url('/decoration/A Box.drawio.png')"} bgRepeat={"repeat"} >
                         <Box>
-                            <TbShoppingCartPlus size={70} />
+                            <TbShoppingCart size={70} />
                         </Box>
                         <Text as="b" fontSize="2xl">Keranjang</Text>
                     </Box>
