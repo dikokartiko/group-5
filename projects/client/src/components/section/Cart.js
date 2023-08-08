@@ -11,22 +11,17 @@ const Cart = () => {
     // const popover = useDisclosure();
 
     const [itemSelected, setItemSelected] = useState();
-
-    // State untuk menyimpan status isOpen untuk masing-masing item
     const [popoverOpen, setPopoverOpen] = useState(new Array(data.length).fill(false));
 
-    // Fungsi untuk membuka popover pada indeks tertentu
     const openPopover = (index) => {
         const updatedOpen = [...popoverOpen];
         for (let i = 0; i < updatedOpen.length; i++) {
-            
-            if (updatedOpen[i] === true) {console.log(`updatedOpen[${i}]: ${updatedOpen[i]}`); closePopover(i);}
+            if (updatedOpen[i] === true) updatedOpen[i] = false
         }
         updatedOpen[index] = true;
         setPopoverOpen(updatedOpen);
     };
 
-    // Fungsi untuk menutup popover pada indeks tertentu
     const closePopover = (index) => {
         const updatedOpen = [...popoverOpen];
         updatedOpen[index] = false;
@@ -60,7 +55,7 @@ const Cart = () => {
                         { 
                             data.map((item, index) => (
                                 <>
-                                    <PopoverButton onClickButton1={modalDelete.onOpen} onClickButton2={modalEdit.onOpen} onClose={() => closePopover(index)} isOpen={popoverOpen[index]} onOpen={() => openPopover(index)}>
+                                    <PopoverButton key={index} onClickButton1={modalDelete.onOpen} onClickButton2={modalEdit.onOpen} onClose={() => closePopover(index)} isOpen={popoverOpen[index]} onOpen={() => openPopover(index)}>
                                         <Box display={"flex"} justifyContent={"space-between"} padding={5} _hover={{background: "#FEEBC8"}} onClick={() => setItemSelected(index)}>
                                             <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
                                             <Box maxWidth={"12%"}>999x</Box>
