@@ -13,9 +13,7 @@ const ProductCard = () => {
         />
         <Stack margin='1'>
           <Heading size='md'>Living room Sofa</Heading>
-          <Text color='blue.600' fontSize='xl'>
-            Rp.4.500.000,-
-          </Text>
+          <Text color='blue.600' fontSize='xl'>4.500.000</Text>
         </Stack>
       </CardBody>
     </Card>
