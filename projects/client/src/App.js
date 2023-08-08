@@ -16,7 +16,7 @@ function App() {
         <Route path="/forgotPassword/emailSent" element={<SuccessPage purpose="email"/>} />
         <Route path="/forgotPassword/passwordReset" element={<SuccessPage purpose="reset"/>} />
         <Route path="/forgotPassword/resetPassword" element={<ResetPasswordPage/>} />
-        <Route path="/main" element={<MainPage/>} />
+        <Route path="/main" element={<MainPage role="kasir"/>} />
         <Route path="/test" element={<TestPage/>} />
       </Routes>
     </Router>
