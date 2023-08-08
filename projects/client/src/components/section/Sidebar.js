@@ -15,7 +15,7 @@ const Sidebar = () => {
     //         </DrawerBody>
     //     </DrawerContent>
     // </Drawer>
-    <Box height="90vh" width={["", "15%"]} boxShadow={'md'} paddingX={5}>
+    <Box height="90vh" width={["", "20%"]} boxShadow={'md'} paddingX={5}>
         <Box marginTop={5} borderTop={"1px"}>
             <Text as="b">Kasir</Text>
         </Box>
