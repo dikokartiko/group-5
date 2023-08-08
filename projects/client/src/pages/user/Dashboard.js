@@ -13,7 +13,6 @@ const Dashboard = (props) => {
         <Box display={"flex"} width="100%" bgColor={"lightgrey"}>
           {props.children}
         </Box>
-        <Cart/>
       </Box>
     </Box>
   )
