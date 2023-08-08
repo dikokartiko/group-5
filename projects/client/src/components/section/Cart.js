@@ -1,5 +1,5 @@
 import { Box, Button, HStack, Image, Text, useDisclosure } from '@chakra-ui/react'
-import React from 'react'
+import React, { useState } from 'react'
 import { TbMinus, TbPencil, TbPlus, TbShoppingCartPlus, TbShoppingCartX } from 'react-icons/tb'
 import PopoverButton from '../modal/PopoverButton'
 import ModalRegular from '../modal/ModalRegular'
@@ -8,7 +8,31 @@ const Cart = () => {
     const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const modalDelete = useDisclosure();
     const modalEdit = useDisclosure();
-    const popover = useDisclosure();
+    // const popover = useDisclosure();
+
+    const [itemSelected, setItemSelected] = useState();
+
+    // State untuk menyimpan status isOpen untuk masing-masing item
+    const [popoverOpen, setPopoverOpen] = useState(new Array(data.length).fill(false));
+
+    // Fungsi untuk membuka popover pada indeks tertentu
+    const openPopover = (index) => {
+        const updatedOpen = [...popoverOpen];
+        for (let i = 0; i < updatedOpen.length; i++) {
+            
+            if (updatedOpen[i] === true) {console.log(`updatedOpen[${i}]: ${updatedOpen[i]}`); closePopover(i);}
+        }
+        updatedOpen[index] = true;
+        setPopoverOpen(updatedOpen);
+    };
+
+    // Fungsi untuk menutup popover pada indeks tertentu
+    const closePopover = (index) => {
+        const updatedOpen = [...popoverOpen];
+        updatedOpen[index] = false;
+        setPopoverOpen(updatedOpen);
+    };
+
     let modalTitle = "";
     if (modalDelete.isOpen) {
         modalTitle = <Box display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
@@ -36,24 +60,22 @@ const Cart = () => {
                         { 
                             data.map((item, index) => (
                                 <>
-
+                                    <PopoverButton onClickButton1={modalDelete.onOpen} onClickButton2={modalEdit.onOpen} onClose={() => closePopover(index)} isOpen={popoverOpen[index]} onOpen={() => openPopover(index)}>
+                                        <Box display={"flex"} justifyContent={"space-between"} padding={5} _hover={{background: "#FEEBC8"}} onClick={() => setItemSelected(index)}>
+                                            <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
+                                            <Box maxWidth={"12%"}>999x</Box>
+                                            <Box maxWidth={"100%"}>Rp. 99.999.000,-</Box>
+                                        </Box>
+                                    </PopoverButton>
                                     <Box borderBottomColor={"gray.300"} borderBottomWidth={1} marginX={5}/>
                                 </>
                             ))
                         }
-                        
-                        <PopoverButton onClickButton1={modalDelete.onOpen} onClickButton2={modalEdit.onOpen} onClose={popover.onClose} isOpen={popover.isOpen} onOpen={popover.onOpen}>
-                            <Box display={"flex"} justifyContent={"space-between"} padding={5} _hover={{background: "#FEEBC8"}}>
-                                <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
-                                <Box maxWidth={"12%"}>999x</Box>
-                                <Box maxWidth={"100%"}>Rp. 99.999.000,-</Box>
-                            </Box>
-                        </PopoverButton>
 
                         {/* Modal for delete item confirmation */}
                         <ModalRegular 
                             isOpen={modalDelete.isOpen} 
-                            onClose={() => {popover.onClose(); modalDelete.onClose()}} 
+                            onClose={() => {closePopover(itemSelected); modalDelete.onClose()}} 
                             onCloseX={modalDelete.onClose} 
                             title={modalTitle} 
                             defaultButtonColor="red" 
@@ -68,7 +90,7 @@ const Cart = () => {
                         {/* Modal for edit item */}
                         <ModalRegular 
                             isOpen={modalEdit.isOpen} 
-                            onClose={() => {popover.onClose(); modalEdit.onClose()}} 
+                            onClose={() => {closePopover(itemSelected); modalEdit.onClose()}} 
                             onCloseX={modalEdit.onClose} 
                             title={modalTitle} 
                             defaultButtonColor="green" 
