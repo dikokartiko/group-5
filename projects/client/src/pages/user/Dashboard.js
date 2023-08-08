@@ -2,7 +2,6 @@ import React from 'react'
 import { Box } from '@chakra-ui/react'
 import Header from '../../components/section/Header'
 import Sidebar from '../../components/section/Sidebar'
-import Cart from '../../components/section/Cart'
 
 const Dashboard = (props) => {
   return (
