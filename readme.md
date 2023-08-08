@@ -93,6 +93,7 @@ Components:\
 &emsp;&emsp;&emsp;FE-COMP-5 = Blank Page\
 &emsp;&emsp;FE-MORE = Modal Regular\
 &emsp;&emsp;FE-POBU = Popover with Button only\
+&emsp;&emsp;FE-PRCA = Product Card\
 
 Section:\
 &emsp;&emsp;FE-CART = Cart\
