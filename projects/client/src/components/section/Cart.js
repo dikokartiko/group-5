@@ -8,7 +8,6 @@ const Cart = () => {
     const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const modalDelete = useDisclosure();
     const modalEdit = useDisclosure();
-    // const popover = useDisclosure();
 
     const [itemSelected, setItemSelected] = useState();
     const [popoverOpen, setPopoverOpen] = useState(new Array(data.length).fill(false));
