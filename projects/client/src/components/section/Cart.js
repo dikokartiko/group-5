@@ -5,11 +5,11 @@ import PopoverButton from '../modal/PopoverButton'
 import ModalRegular from '../modal/ModalRegular'
 
 const Cart = () => {
-    const modal = useDisclosure();
+    const modalDelete = useDisclosure();
     const modalEdit = useDisclosure();
     const popover = useDisclosure();
     let modalTitle = "";
-    if (modal.isOpen) {
+    if (modalDelete.isOpen) {
         modalTitle = <Box display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
             <TbShoppingCartX size={70}/>
             <Text as={"b"} fontSize="2xl">Hapus Item?</Text>
@@ -32,7 +32,7 @@ const Cart = () => {
                         <Text as="b" fontSize="2xl">Keranjang</Text>
                     </Box>
                     <Box display={"flex"} flexDirection={'column'} borderBottomColor={"gray.300"} borderBottomStyle={"dashed"} borderBottomWidth={3} boxShadow={"md"} bgColor={"white"} bgImage={"url('/decoration/A Box.drawio.png')"} bgRepeat={"repeat"}>
-                        <PopoverButton onClickButton1={modal.onOpen} onClickButton2={modalEdit.onOpen} onClose={popover.onClose} isOpen={popover.isOpen} onOpen={popover.onOpen}>
+                        <PopoverButton onClickButton1={modalDelete.onOpen} onClickButton2={modalEdit.onOpen} onClose={popover.onClose} isOpen={popover.isOpen} onOpen={popover.onOpen}>
                             <Box display={"flex"} justifyContent={"space-between"} padding={5} _hover={{background: "#FEEBC8"}}>
                                 <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
                                 <Box maxWidth={"12%"}>999x</Box>
@@ -42,14 +42,14 @@ const Cart = () => {
 
                         {/* Modal for delete item confirmation */}
                         <ModalRegular 
-                            isOpen={modal.isOpen} 
-                            onClose={() => {popover.onClose(); modal.onClose()}} 
-                            onCloseX={modal.onClose} 
+                            isOpen={modalDelete.isOpen} 
+                            onClose={() => {popover.onClose(); modalDelete.onClose()}} 
+                            onCloseX={modalDelete.onClose} 
                             title={modalTitle} 
                             defaultButtonColor="red" 
                             primaryButton="Hapus"
                             secondaryButton="Batalkan"
-                            onClickSecondaryButton={modal.onClose}
+                            onClickSecondaryButton={modalDelete.onClose}
                         >
                             <Text fontSize={"lg"}>Apakah anda yakin ingin menghapus item ini?</Text>
                             <Text fontSize={"sm"}>Item yang sudah dihapus tidak dapat dikembalikan lagi</Text>
