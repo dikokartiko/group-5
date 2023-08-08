@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, SimpleGrid } from '@chakra-ui/react'
+import { Box, SimpleGrid } from '@chakra-ui/react'
 import React from 'react'
 import Dashboard from './Dashboard'
 import Cart from '../../components/section/Cart'
