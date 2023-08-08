@@ -55,10 +55,12 @@ const Cart = () => {
                             data.map((item, index) => (
                                 <>
                                     <PopoverButton key={index} onClickButton1={modalDelete.onOpen} onClickButton2={modalEdit.onOpen} onClose={() => closePopover(index)} isOpen={popoverOpen[index]} onOpen={() => openPopover(index)}>
-                                        <Box display={"flex"} justifyContent={"space-between"} padding={5} _hover={{background: "#FEEBC8"}} onClick={() => setItemSelected(index)}>
-                                            <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
+                                        <Box display={"flex"} flexDirection={"column"} justifyContent={"space-between"} padding={5} _hover={{background: "#FEEBC8"}} onClick={() => setItemSelected(index)}>
+                                            <Box display={"flex"} flexDirection={"row"} justifyContent={"space-between"}>
+                                                <Box maxWidth={"50%"}>Mie Iblis M Level 1</Box>
+                                                <Box maxWidth={"50%"}>Rp. 99.999.000,-</Box>
+                                            </Box>
                                             <Box maxWidth={"12%"}>999x</Box>
-                                            <Box maxWidth={"100%"}>Rp. 99.999.000,-</Box>
                                         </Box>
                                     </PopoverButton>
                                     <Box borderBottomColor={"gray.300"} borderBottomWidth={1} marginX={5}/>
