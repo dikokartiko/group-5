@@ -1,17 +1,13 @@
 // Chakra Imports
 import {
   Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
   Flex,
-  Link,
+  Text,
   useColorModeValue,
 } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import AdminNavbarLinks from "./AdminNavbarLinks";
-
 export default function AdminNavbar(props) {
   const [scrolled, setScrolled] = useState(false);
   const {
@@ -113,7 +109,7 @@ export default function AdminNavbar(props) {
         alignItems={{ xl: "center" }}
       >
         <Box mb={{ sm: "8px", md: "0px" }}>
-          <Breadcrumb>
+          {/* <Breadcrumb>
             <BreadcrumbItem color={mainText}>
               <BreadcrumbLink href="#" color={secondaryText}>
                 Pages
@@ -125,26 +121,14 @@ export default function AdminNavbar(props) {
                 {brandText}
               </BreadcrumbLink>
             </BreadcrumbItem>
-          </Breadcrumb>
-          {/* Here we create navbar brand, based on route name */}
-          <Link
+          </Breadcrumb> */}
+          <Text
             color={mainText}
-            href="#"
             bg="inherit"
             borderRadius="inherit"
-            fontWeight="bold"
-            _hover={{ color: { mainText } }}
-            _active={{
-              bg: "inherit",
-              transform: "none",
-              borderColor: "transparent",
-            }}
-            _focus={{
-              boxShadow: "none",
-            }}
-          >
+            fontWeight="bold">
             {brandText}
-          </Link>
+          </Text>
         </Box>
         <Box ms="auto" w={{ sm: "100%", md: "unset" }}>
           <AdminNavbarLinks

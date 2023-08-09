@@ -117,7 +117,7 @@ export default function AuthNavbar(props) {
           <Text>Profile</Text>
         </Button>
       </NavLink>
-      <NavLink to="/auth/signup">
+      <NavLink to="/auth/resetPassword">
         <Button
           fontSize="sm"
           ms="0px"
@@ -184,7 +184,7 @@ export default function AuthNavbar(props) {
           />
         </Box>
         {linksAuth}
-        <Link href="https://creative-tim.com/product/purity-ui-dashboard">
+        <Link href="https://creative-tim.com/product/tupo-dashboard">
           <Button
             bg={bgButton}
             color={colorButton}

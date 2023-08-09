@@ -1,88 +1,112 @@
-// import
-import Dashboard from "views/Dashboard/Dashboard";
-import Tables from "views/Dashboard/Tables";
-import Billing from "views/Dashboard/Billing";
-import RTLPage from "views/Dashboard/RTL";
-import Profile from "views/Dashboard/Profile";
-import SignIn from "views/Auth/SignIn.js";
-import SignUp from "views/Auth/SignUp.js";
+// import Auth
+import SignIn from "views/Auth/SignIn";
+import ForgotPassword from "views/Auth/ForgotPassword";
+import ResetPassword from "views/Auth/ResetPassword";
+
+// import Admin
+import DashboardAdmin from "views/Dashboard/Dashboard";
+import CashierAdmin from "views/Dashboard/Cashier";
+import ProductAdmin from "views/Dashboard/Product";
+import ProductCategoryAdmin from "views/Dashboard/Product_Category";
+import SalesReportAdmin from "views/Dashboard/Sales_Report";
+
+// import Cashier
+import DashboardCashier from "views/Cashier/Dashboard";
+import ProductCashier from "views/Cashier/Product";
+import ProfileCashier from "views/Cashier/Profile";
+import TransactionCashier from "views/Cashier/Transaction";
 
 import {
   HomeIcon,
   StatsIcon,
+  CartIcon,
   CreditIcon,
   PersonIcon,
   DocumentIcon,
-  RocketIcon,
-  SupportIcon,
 } from "components/Icons/Icons";
 
 var dashRoutes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    rtlName: "لوحة القيادة",
+    rtlName: "mainMenu",
+    routesComponent: "admin",
     icon: <HomeIcon color="inherit" />,
-    component: Dashboard,
+    component: DashboardAdmin,
     layout: "/admin",
   },
   {
-    path: "/tables",
-    name: "Tables",
-    rtlName: "لوحة القيادة",
-    icon: <StatsIcon color="inherit" />,
-    component: Tables,
+    path: "/cashier",
+    name: "Cashier",
+    rtlName: "mainMenu",
+    routesComponent: "admin",
+    icon: <PersonIcon color="inherit" />,
+    component: CashierAdmin,
     layout: "/admin",
   },
   {
-    path: "/billing",
-    name: "Billing",
-    rtlName: "لوحة القيادة",
+    path: "/product",
+    name: "Product",
+    rtlName: "mainMenu",
+    routesComponent: "admin",
+    icon: <CartIcon color="inherit" />,
+    component: ProductAdmin,
+    layout: "/admin",
+  },
+  {
+    path: "/productCategory",
+    name: "Product Category",
+    rtlName: "mainMenu",
+    routesComponent: "admin",
     icon: <CreditIcon color="inherit" />,
-    component: Billing,
+    component: ProductCategoryAdmin,
     layout: "/admin",
   },
   {
-    path: "/rtl-support-page",
-    name: "RTL",
-    rtlName: "آرتيإل",
-    icon: <SupportIcon color="inherit" />,
-    component: RTLPage,
-    layout: "/rtl",
+    path: "/salesReport",
+    name: "Sales Report",
+    rtlName: "mainMenu",
+    routesComponent: "admin",
+    icon: <StatsIcon color="inherit" />,
+    component: SalesReportAdmin,
+    layout: "/admin",
   },
   {
-    name: "ACCOUNT PAGES",
-    category: "account",
-    rtlName: "صفحات",
-    state: "pageCollapse",
-    views: [
-      {
-        path: "/profile",
-        name: "Profile",
-        rtlName: "لوحة القيادة",
-        icon: <PersonIcon color="inherit" />,
-        secondaryNavbar: true,
-        component: Profile,
-        layout: "/admin",
-      },
-      {
-        path: "/signin",
-        name: "Sign In",
-        rtlName: "لوحة القيادة",
-        icon: <DocumentIcon color="inherit" />,
-        component: SignIn,
-        layout: "/auth",
-      },
-      {
-        path: "/signup",
-        name: "Sign Up",
-        rtlName: "لوحة القيادة",
-        icon: <RocketIcon color="inherit" />,
-        secondaryNavbar: true,
-        component: SignUp,
-        layout: "/auth",
-      },
-    ],
+    path: "/signin",
+    name: "SignIn",
+    component: SignIn,
+    rtlName: "authRoutes",
+    layout: "/auth",
+  },
+  {
+    path: "/forgotPassword",
+    component: ForgotPassword,
+    rtlName: "authRoutes",
+    layout: "/auth",
+  },
+  {
+    path: "/resetPassword/:token",
+    component: ResetPassword,
+    rtlName: "authRoutes",
+    layout: "/auth",
+  },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    rtlName: "mainMenu",
+    routesComponent: "cashier",
+    icon: <HomeIcon color="inherit" />,
+    component: DashboardCashier,
+    layout: "/cashier",
+  },
+  {
+    path: "/transaction",
+    name: "Transaction",
+    rtlName: "mainMenu",
+    routesComponent: "cashier",
+    icon: <CartIcon color="inherit" />,
+    component: TransactionCashier,
+    layout: "/cashier",
   },
 ];
 export default dashRoutes;

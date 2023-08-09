@@ -1,4 +1,3 @@
-// controllers/avatar.js
 const path = require("path");
 const { User } = require("../models");
 

@@ -1,6 +1,11 @@
 const express = require("express");
 const { body, param } = require("express-validator");
-const { addToCart, updateCart, getCart } = require("../controllers/carts");
+const {
+  addToCart,
+  updateCart,
+  getCart,
+  deleteCart,
+} = require("../controllers/carts");
 const validateRequest = require("../middleware/validateRequest");
 const authenticate = require("../middleware/authenticate");
 const router = express.Router();
@@ -31,10 +36,6 @@ router.put(
     body("items.*.quantity")
       .isInt({ gte: 0 })
       .withMessage("Quantity must be a non-negative integer"),
-    body("items.*.isChecked")
-      .optional()
-      .isBoolean()
-      .withMessage("isChecked must be a boolean value"),
     body("items.*.productId")
       .optional()
       .isInt({ gt: 0 })
@@ -44,7 +45,7 @@ router.put(
   authenticate,
   updateCart
 );
-
+router.delete("/delete/:id", authenticate, deleteCart);
 router.get("/", authenticate, getCart);
 
 module.exports = router;

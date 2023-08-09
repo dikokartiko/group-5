@@ -1,49 +1,80 @@
-// Chakra Icons
-import { BellIcon, SearchIcon } from "@chakra-ui/icons";
-// Chakra Imports
+import React, { useState, useEffect, useCallback } from "react";
 import {
-  Button,
-  Flex,
-  IconButton,
-  Input,
-  InputGroup,
-  InputLeftElement,
   Menu,
   MenuButton,
-  MenuItem,
   MenuList,
+  MenuItem,
+  Button,
+  Flex,
+  Icon,
   Text,
+  Avatar,
+  Modal,
+  ModalOverlay,
   useColorModeValue,
 } from "@chakra-ui/react";
-// Assets
-import avatar1 from "assets/img/avatars/avatar1.png";
-import avatar2 from "assets/img/avatars/avatar2.png";
-import avatar3 from "assets/img/avatars/avatar3.png";
-// Custom Icons
-import { ProfileIcon, SettingsIcon } from "components/Icons/Icons";
-// Custom Components
-import { ItemContent } from "components/Menu/ItemContent";
+import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
 import SidebarResponsive from "components/Sidebar/SidebarResponsive";
 import PropTypes from "prop-types";
-import React from "react";
-import { NavLink } from "react-router-dom";
 import routes from "routes.js";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+import ModalAddAvatar from "components/Modal/ModalAddAvatar";
 
 export default function HeaderLinks(props) {
   const { variant, children, fixed, secondary, onOpen, ...rest } = props;
-
-  // Chakra Color Mode
-  let mainTeal = useColorModeValue("teal.300", "teal.300");
-  let inputBg = useColorModeValue("white", "gray.800");
+  const navigate = useHistory();
   let mainText = useColorModeValue("gray.700", "gray.200");
   let navbarIcon = useColorModeValue("gray.500", "gray.200");
-  let searchIcon = useColorModeValue("gray.700", "gray.200");
-
   if (secondary) {
     navbarIcon = "white";
     mainText = "white";
   }
-  const settingsRef = React.useRef();
+  const [data, setData] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [userAvatar, setUserAvatar] = useState(null);
+
+  const openModal = useCallback(() => {
+    setIsOpen(!isOpen);
+  }, []);
+
+  const closeModal = useCallback(() => {
+    setIsOpen(isOpen);
+  }, []);
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate.push("/");
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const result = await axios("http://localhost:3000/auth", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setData(result.data);
+        const image = await axios.get(
+          "http://localhost:3000/auth/profile-picture",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            responseType: "blob",
+          }
+        );
+        // Convert binary data into a data URL
+        const reader = new FileReader();
+        reader.onload = (e) => setUserAvatar(e.target?.result);
+        reader.readAsDataURL(image?.data);
+      } catch (error) {}
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <Flex
       pe={{ sm: "0px", md: "16px" }}
@@ -51,126 +82,55 @@ export default function HeaderLinks(props) {
       alignItems="center"
       flexDirection="row"
     >
-      <InputGroup
-        cursor="pointer"
-        bg={inputBg}
-        borderRadius="15px"
-        w={{
-          sm: "128px",
-          md: "200px",
-        }}
-        me={{ sm: "auto", md: "20px" }}
-        _focus={{
-          borderColor: { mainTeal },
-        }}
-        _active={{
-          borderColor: { mainTeal },
-        }}
-      >
-        <InputLeftElement
-          children={
-            <IconButton
-              bg="inherit"
-              borderRadius="inherit"
-              _hover="none"
-              _active={{
-                bg: "inherit",
-                transform: "none",
-                borderColor: "transparent",
-              }}
-              _focus={{
-                boxShadow: "none",
-              }}
-              icon={<SearchIcon color={searchIcon} w="15px" h="15px" />}
-            ></IconButton>
-          }
-        />
-        <Input
-          fontSize="xs"
-          py="11px"
-          color={mainText}
-          placeholder="Type here..."
-          borderRadius="inherit"
-        />
-      </InputGroup>
-      <NavLink to="/auth/signin">
-        <Button
-          ms="0px"
-          px="0px"
-          me={{ sm: "2px", md: "16px" }}
-          color={navbarIcon}
-          variant="transparent-with-icon"
-          rightIcon={
-            document.documentElement.dir ? (
-              ""
+      <Menu>
+        <MenuButton as={Button} variant="transparent-with-icon">
+          <Flex
+            w="100%"
+            flexDirection={{
+              sm: "column",
+              md: "row",
+            }}
+            alignItems={{ xl: "center" }}
+          >
+            {userAvatar ? (
+              <Avatar
+                me={{ md: "10px" }}
+                src={userAvatar}
+                w="40px"
+                h="40px"
+                borderRadius="100%"
+              />
             ) : (
-              <ProfileIcon color={navbarIcon} w="22px" h="22px" me="0px" />
-            )
-          }
-          leftIcon={
-            document.documentElement.dir ? (
-              <ProfileIcon color={navbarIcon} w="22px" h="22px" me="0px" />
-            ) : (
-              ""
-            )
-          }
-        >
-          <Text display={{ sm: "none", md: "flex" }}>Sign In</Text>
-        </Button>
-      </NavLink>
+              <Icon
+                color="grey.500"
+                as={FaUserCircle}
+                me="10px"
+                w="40px"
+                h="40px"
+              />
+            )}
+            <Text display={{ sm: "none", md: "flex" }}>{data?.username}</Text>
+          </Flex>
+        </MenuButton>
+        <MenuList>
+          <MenuItem onClick={openModal}>Settings</MenuItem>
+          <Modal isOpen={isOpen} color="black" colorScheme="black">
+            <ModalOverlay />
+            <ModalAddAvatar
+              onCloseModal={closeModal}
+              titleModal="Edit Profile Image"
+              idModal="cashier"
+            ></ModalAddAvatar>
+          </Modal>
+          <MenuItem onClick={handleLogout}>Log Out</MenuItem>
+        </MenuList>
+      </Menu>
       <SidebarResponsive
         logoText={props.logoText}
         secondary={props.secondary}
         routes={routes}
-        // logo={logo}
         {...rest}
       />
-      <SettingsIcon
-        cursor="pointer"
-        ms={{ base: "16px", xl: "0px" }}
-        me="16px"
-        ref={settingsRef}
-        onClick={props.onOpen}
-        color={navbarIcon}
-        w="18px"
-        h="18px"
-      />
-      <Menu>
-        <MenuButton>
-          <BellIcon color={navbarIcon} w="18px" h="18px" />
-        </MenuButton>
-        <MenuList p="16px 8px">
-          <Flex flexDirection="column">
-            <MenuItem borderRadius="8px" mb="10px">
-              <ItemContent
-                time="13 minutes ago"
-                info="from Alicia"
-                boldInfo="New Message"
-                aName="Alicia"
-                aSrc={avatar1}
-              />
-            </MenuItem>
-            <MenuItem borderRadius="8px" mb="10px">
-              <ItemContent
-                time="2 days ago"
-                info="by Josh Henry"
-                boldInfo="New Album"
-                aName="Josh Henry"
-                aSrc={avatar2}
-              />
-            </MenuItem>
-            <MenuItem borderRadius="8px">
-              <ItemContent
-                time="3 days ago"
-                info="Payment succesfully completed!"
-                boldInfo=""
-                aName="Kara"
-                aSrc={avatar3}
-              />
-            </MenuItem>
-          </Flex>
-        </MenuList>
-      </Menu>
     </Flex>
   );
 }
