@@ -1,0 +1,16 @@
+.chakra-text.css-1jijfcn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  color: white;
+  font-weight: 500;
+}
+
+.css-12e36ov{
+  overflow-x: scroll !important;
+}
+
+.css-19f1e8p{
+  overflow-x: hidden !important;
+}
